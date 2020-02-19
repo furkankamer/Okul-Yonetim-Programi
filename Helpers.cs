@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
+using System.Configuration;
 namespace WindowsFormsApp1
 {
     class Helpers
     {
         static public string Sqlexecuter(string command, int type)
         {
-            using (SqlConnection con = new SqlConnection(@"Data Source=denemedata.database.windows.net;User ID=djfurblood;Password=Kollama38;Initial Catalog = data;"))
+            string constr = ConfigurationManager.ConnectionStrings["derssecimconnection"].ConnectionString.ToString();
+            using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
                 using (SqlCommand comm = new SqlCommand(command, con))
@@ -45,7 +47,8 @@ namespace WindowsFormsApp1
 
         static public Dictionary<string, List<string>> Sqlreaderexecuter(string comm)
         {
-            using (SqlConnection conne = new SqlConnection(@"Data Source=denemedata.database.windows.net;User ID=djfurblood;Password=Kollama38;Initial Catalog = data;"))
+            string constr = ConfigurationManager.ConnectionStrings["derssecimconnection"].ConnectionString.ToString();
+            using (SqlConnection conne = new SqlConnection(constr))
             {
                 conne.Open();
                 Dictionary<string, List<string>> mydict = new Dictionary<string, List<string>>();
