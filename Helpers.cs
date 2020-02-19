@@ -11,6 +11,22 @@ namespace WindowsFormsApp1
 {
     class Helpers
     {
+        static public int[] Datagridcellreturner(DataGridView datag,string gun,string saat)
+        {
+            int[] indices = new int[2];
+            for(int i=0;i<datag.Rows.Count;i++)
+            {
+                for (int j = 0; j < datag.Columns.Count; j++)
+                {
+                    string tablo_saat = datag.Rows[i].HeaderCell.Value.ToString();
+                    string tablo_gun = datag.Columns[j].HeaderText;
+                    if (tablo_saat == saat && tablo_gun == gun) { indices[0] = i; indices[1] = j; break; }
+                }
+
+            }
+            return indices;
+
+        }
         static public string Sqlexecuter(string command, int type)
         {
             string constr = ConfigurationManager.ConnectionStrings["derssecimconnection"].ConnectionString.ToString();
@@ -104,17 +120,11 @@ namespace WindowsFormsApp1
             }
             if (rows.Length > 1) datag.Rows.Add(rows.Length - 1);
             for (int i = 0; i < rows.Length; i++)
-            {
                 datag.Rows[i].HeaderCell.Value = rows[i];
-            }
             for (int i = 0; i < datag.Columns.Count; i++)
-            {
                 datag.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
             foreach (DataGridViewRow row in datag.Rows)
-            {
                 row.Height = (datag.ClientRectangle.Height - datag.ColumnHeadersHeight) / datag.Rows.Count;
-            }
             datag.RowHeadersWidth = 80;
             datag.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             datag.ReadOnly = true;

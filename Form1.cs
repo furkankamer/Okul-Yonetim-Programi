@@ -34,14 +34,14 @@ namespace WindowsFormsApp1
             Settings.GeneralSettings = String.Empty;
             cikis_butonu.Hide();
             Giris_Paneli.BringToFront();
-            giriss_paneli.Visible = false;
-            Kayit_Paneli.Visible = false;
-            Ders_Olusturma_Paneli.Visible = false;
-            Ders_Secim_Paneli.Visible = false;
-            excel_paneli.Visible = false;
-            ogrenci_loggin_paneli.Visible = false;
-            ogretmen_loggin_paneli.Visible = false;
-            email_paneli.Visible = false;
+            giriss_paneli.Hide();
+            Kayit_Paneli.Hide();
+            Ders_Olusturma_Paneli.Hide();
+            Ders_Secim_Paneli.Hide();
+            excel_paneli.Hide();
+            ogrenci_loggin_paneli.Hide();
+            ogretmen_loggin_paneli.Hide();
+            email_paneli.Hide();
             button3.Enabled = false;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
             dateTimePicker1.MinDate = DateTime.Now.AddDays((8-DateTime.Today.DayOfWeek - DayOfWeek.Sunday));
@@ -325,25 +325,17 @@ namespace WindowsFormsApp1
             Settings.GeneralSettings = String.Empty;
             clicked = 0;
             Player.Play();
-            comboBox2.Items.Clear();
-            comboBox3.Items.Clear();
-            comboBox4.Items.Clear();
-            comboBox9.Items.Clear();
-            comboBox6.Items.Clear();
-            comboBox2.SelectedIndex = -1;
-            comboBox3.SelectedIndex = -1;
-            comboBox4.SelectedIndex = -1;
-            comboBox6.SelectedIndex = -1;
-            comboBox9.SelectedIndex = -1;
+            ComboBox[] cmb = { comboBox2, comboBox3, comboBox4, comboBox9, comboBox6 };
+            foreach(ComboBox combo in cmb)
+            {
+                combo.Items.Clear();
+                combo.SelectedIndex = -1;
+            }
             Giris_Paneli.Show();
-            ogrenci_loggin_paneli.Hide();
-            ogretmen_loggin_paneli.Hide();
-            Ders_Olusturma_Paneli.Hide();
-            Ders_Secim_Paneli.Hide();
-            excel_paneli.Hide();
-            giriss_paneli.Hide();
-            Kayit_Paneli.Hide();
-            email_paneli.Hide();
+            Panel[] pnl = { ogrenci_loggin_paneli , ogretmen_loggin_paneli , Ders_Olusturma_Paneli, Ders_Secim_Paneli, excel_paneli,
+            giriss_paneli,Kayit_Paneli,email_paneli};
+            foreach (Panel panel in pnl)
+                panel.Hide();
             dataGridView1.Hide();
             cikis_butonu.Hide();
         }
@@ -365,23 +357,13 @@ namespace WindowsFormsApp1
                                 where derskayit.student_id = '{person.id}' ";
             Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(dersler);
             int timec = mydict["time"].Count;
-            for(int i = 0; i < dataGridView1.Rows.Count; i++)
+            for (int i = 0; i < timec; i++)
             {
-                for(int j = 0; j < dataGridView1.Columns.Count; j++)
-                {
-                    string hour = dataGridView1.Rows[i].HeaderCell.Value.ToString();
-                    string gun = dataGridView1.Columns[j].HeaderText;
-                    for (int k = 0; k < timec; k++)
-                    {
-                        if (mydict["time"][k] == hour && mydict["DersGünü"][k] == gun)
-                        {
-                            string hocaname = $"select isim from Hocalar where Hoca_id = '{mydict["hocaid"][k]}'";
-                            hocaname = Helpers.Sqlexecuter(hocaname, 1);
-                            dataGridView1.Rows[i].Cells[j].Value = mydict["DersAdi"][k] + "\n" + hocaname;
-                            dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Blue;
-                        }
-                    }
-                }
+                int[] indexler = Helpers.Datagridcellreturner(dataGridView1, mydict["DersGünü"][i], mydict["time"][i]);
+                string hocaname = $"select isim from Hocalar where Hoca_id = '{mydict["hocaid"][i]}'";
+                hocaname = Helpers.Sqlexecuter(hocaname, 1);
+                dataGridView1.Rows[indexler[0]].Cells[indexler[1]].Value = mydict["DersAdi"][i] + "\n" + hocaname;
+                dataGridView1.Rows[indexler[0]].Cells[indexler[1]].Style.BackColor = Color.Blue;
             }
             MessageBox.Show("Bırakmak İstediğiniz Dersin Üzerine Çift Tıklayınız");
         }
@@ -661,24 +643,12 @@ namespace WindowsFormsApp1
                                   $"Hoca_id = (select hoca_id from Hocalar where isim = '{comboBox6.Text}')";
                 Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(schedule);
                 int timec = mydict["time"].Count;
-                
-                for(int i=0;i<dataGridView1.Rows.Count;i++)
+                for(int i=0;i<timec;i++)
                 {
-                    for(int j=0;j<dataGridView1.Columns.Count;j++)
-                    {
-                        string hour = dataGridView1.Rows[i].HeaderCell.Value.ToString();
-                        string gun = dataGridView1.Columns[j].HeaderText;
-                        for (int k = 0;k<timec;k++)
-                        {
-                            if(mydict["time"][k] == hour && mydict["DersGünü"][k] == gun)
-                            {
-                                dataGridView1.Rows[i].Cells[j].Value = "Kayitli Ogrenci: " + mydict["Enrolled"][k];
-                                dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Green;
-                            }
-                        }
-                    }
+                    int[] indexler = Helpers.Datagridcellreturner(dataGridView1, mydict["DersGünü"][i], mydict["time"][i]);
+                    dataGridView1.Rows[indexler[0]].Cells[indexler[1]].Value = "Kayitli Ogrenci: " + mydict["Enrolled"][i];
+                    dataGridView1.Rows[indexler[0]].Cells[indexler[1]].Style.BackColor = Color.Green;
                 }
-                
             }
         }
 
