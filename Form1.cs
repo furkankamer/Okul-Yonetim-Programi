@@ -33,15 +33,10 @@ namespace WindowsFormsApp1
             InitializeComponent();
             Settings.GeneralSettings = String.Empty;
             cikis_butonu.Hide();
-            Giris_Paneli.BringToFront();
-            giriss_paneli.Hide();
-            Kayit_Paneli.Hide();
-            Ders_Olusturma_Paneli.Hide();
-            Ders_Secim_Paneli.Hide();
-            excel_paneli.Hide();
-            ogrenci_loggin_paneli.Hide();
-            ogretmen_loggin_paneli.Hide();
-            email_paneli.Hide();
+            Panel[] pnl = { giriss_paneli, Kayit_Paneli, Ders_Olusturma_Paneli, Ders_Secim_Paneli,
+                excel_paneli, ogrenci_loggin_paneli,ogretmen_loggin_paneli,email_paneli };
+            foreach (Panel panel in pnl)
+                panel.Hide();
             button3.Enabled = false;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
             dateTimePicker1.MinDate = DateTime.Now.AddDays((8-DateTime.Today.DayOfWeek - DayOfWeek.Sunday));
@@ -101,7 +96,6 @@ namespace WindowsFormsApp1
         {
             if (dateTimePicker1.Value.Date > DateTime.Now && comboBox1.Text != "" && comboBox8.Text != "" && comboBox2.Text != "" && (comboBox9.Text != "" || textBox8.Text != ""))
             {
-
                 string name;
                 if (listeden_sec.Checked)
                     name = comboBox9.Text;
@@ -207,16 +201,7 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Giriş Başarılı!");
                     string personget = $@"select * from Kisiler where kullaniciadi = '{textBox1.Text}'";
                     Dictionary<string, List<string>> persondict = Helpers.Sqlreaderexecuter(personget);
-                    Person person = new Person
-                    {
-                        user = textBox1.Text,
-                        name = persondict["isim"][0],
-                        secondname = persondict["soyisim"][0],
-                        email = persondict["mail"][0],
-                        unvan = persondict["unvan"][0],
-                        sinif = persondict["Sınıf"][0],
-                        id = persondict["Personid"][0]
-                    };
+                    Person person = new Person(persondict, textBox1.Text);
                     Settings.GeneralSettings = JsonConvert.SerializeObject(person);
                     if (persondict["unvan"].Contains(ogretmen.Text)) ogretmen_loggin_paneli.Show();
                     else ogrenci_loggin_paneli.Show();
@@ -297,25 +282,16 @@ namespace WindowsFormsApp1
 
         private void Button9_Click(object sender, EventArgs e)
         {
-
-            String sql1 = "";
-            sql1 += $@"if exists (SELECT sifre FROM Kisiler where mail='{textBox7.Text}')
-                         SELECT sifre FROM Kisiler where mail='{textBox7.Text}'
-                       else
-                          select null";
+            String sql1 = $@"SELECT sifre FROM Kisiler where mail='{textBox7.Text}'";
             string obj = Helpers.Sqlexecuter(sql1, 1);
             if (obj == "null")
             {
                 MessageBox.Show("email adresi yanlış lütfen tekrar deneyiniz");
             }
-
             else
             {
                 Email(obj.ToString(), "sifreniz", textBox7.Text);
                 MessageBox.Show("sifreniz email adresinize gönderilmiştir");
-                label7.Hide();
-                textBox7.Hide();
-                button9.Hide();
             }
 
         }
@@ -350,11 +326,11 @@ namespace WindowsFormsApp1
             Ders_Secim_Paneli.Visible = false;
             string[] headerscol = { "Pazartesi", "Sali", "Çarşamba", "Persembe", "Cuma", "Cumartesi" };
             string[] hoursrow = { "10:50:00", "11:10:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "17:00:00", "17:30:00" };
-            Helpers.datagridviewformatter(dataGridView1, headerscol, hoursrow);
+            Helpers.Datagridviewformatter(dataGridView1, headerscol, hoursrow);
             Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
             string dersler = $@"select Dersler.DersGünü,Dersler.DersAdi, Dersler.hoca_id[hocaid], cast(Dersler.date2 as time(0))[time]
                                 from Dersler inner join DersKayit on DersKayit.ders_id = Dersler.Ders_ID
-                                where derskayit.student_id = '{person.id}' ";
+                                where derskayit.student_id = '{person.İd}' ";
             Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(dersler);
             int timec = mydict["time"].Count;
             for (int i = 0; i < timec; i++)
@@ -391,7 +367,7 @@ namespace WindowsFormsApp1
             {
                 string[] headerscol = { comboBox4.Text };
                 string[] hoursrow = { "10:50:00", "11:10:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "17:00:00", "17:30:00" };
-                Helpers.datagridviewformatter(dataGridView1,hoursrow,headerscol);
+                Helpers.Datagridviewformatter(dataGridView1,hoursrow,headerscol);
                 string str1 = $"select cast(date2 as time(0))[date] from Dersler where Quota != Enrolled " +
                         $"and Hoca_id = (select hoca_id from Hocalar where isim = '{comboBox3.Text}') " +
                         $"and DersGünü = '{comboBox4.Text}'";
@@ -498,7 +474,7 @@ namespace WindowsFormsApp1
                 if(ders_id == "null") return;
                 string checkcollision = $@"select Dersler.DersGünü, cast(date2 as time(0))[time] from
                                            Dersler inner join Derskayit on Derskayit.ders_id = Dersler.Ders_ID
-                                           where derskayit.student_id = '{person.id}'";
+                                           where derskayit.student_id = '{person.İd}'";
                 Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(checkcollision);
                 int countt = mydict["DersGünü"].Count;
                 for (int i=0;i<countt;i++)
@@ -511,13 +487,13 @@ namespace WindowsFormsApp1
                     }
                 }
 
-                string insertders = $@"insert into derskayit(student_id,ders_id) values('{person.id}','{ders_id}')";
+                string insertders = $@"insert into derskayit(student_id,ders_id) values('{person.İd}','{ders_id}')";
                 string updateenroll = $@"update Dersler set enrolled = '1' where Ders_ID = '{ders_id}'";
                 if (Helpers.Sqlexecuter(insertders, 0) != "null")
                     Helpers.Sqlexecuter(updateenroll, 0);
                 else
                     MessageBox.Show("Basarisiz!");
-        }
+            }
             dataGridView1.Enabled = true;
         }
 
@@ -541,7 +517,7 @@ namespace WindowsFormsApp1
                             string dersgunu = dataGridView1.Columns[colind].HeaderText;
                             string derssaati = dataGridView1.Rows[rowind].HeaderCell.Value.ToString();
                             Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
-                            string unenroll = $@"delete from DersKayit where student_id = {person.id} and
+                            string unenroll = $@"delete from DersKayit where student_id = {person.İd} and
                                                  ders_id = (select Ders_ID from Dersler where 
                                                   hoca_id = (select Hoca_id from Hocalar where isim = '{dershocasi}') and DersAdi = '{dersadi}'
                                                   and cast(date2 as time(0)) = '{derssaati}'
@@ -590,9 +566,9 @@ namespace WindowsFormsApp1
             int colc = dataGridView1.Columns.Count;
             if (e.RowIndex < rowc && e.ColumnIndex < colc && e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.DarkGray)
             {
-                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == "Dolu")
+                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Dolu")
                     dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                else if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == "Seç")
+                else if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Seç")
                     dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
                 else
                     dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Renk;
@@ -638,7 +614,7 @@ namespace WindowsFormsApp1
                 button3.Enabled = true;
                 string[] headerscol = {"Pazartesi","Sali","Çarşamba","Persembe","Cuma","Cumartesi" };
                 string[] hoursrow = {"10:50:00","11:10:00","13:00:00","13:30:00","14:00:00","14:30:00","17:00:00","17:30:00" };
-                Helpers.datagridviewformatter(dataGridView1, headerscol, hoursrow);
+                Helpers.Datagridviewformatter(dataGridView1, headerscol, hoursrow);
                 string schedule = $"select cast(date2 as time(0))[time],DersGünü, Enrolled from Dersler where " +
                                   $"Hoca_id = (select hoca_id from Hocalar where isim = '{comboBox6.Text}')";
                 Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(schedule);

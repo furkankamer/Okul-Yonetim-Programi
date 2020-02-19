@@ -50,7 +50,7 @@ namespace WindowsFormsApp1
                             return obj.ToString();
                         }
                     }
-                    catch (Exception exp)
+                    catch
                     {
                         con.Close();
                         return "null";
@@ -107,15 +107,17 @@ namespace WindowsFormsApp1
             return gun;
         }
 
-        static public void datagridviewformatter(DataGridView datag, string[] columns, string[] rows)
+        static public void Datagridviewformatter(DataGridView datag, string[] columns, string[] rows)
         {
             datag.Show();
             datag.Rows.Clear();
             datag.Columns.Clear();
             foreach (string header in columns)
             {
-                DataGridViewColumn d = new DataGridViewTextBoxColumn();
-                d.HeaderText = header;
+                DataGridViewColumn d = new DataGridViewTextBoxColumn
+                {
+                    HeaderText = header
+                };
                 datag.Columns.Add(d);
             }
             if (rows.Length > 1) datag.Rows.Add(rows.Length - 1);
