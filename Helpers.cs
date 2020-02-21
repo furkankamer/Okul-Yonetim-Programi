@@ -107,29 +107,38 @@ namespace WindowsFormsApp1
             return gun;
         }
 
-        static public void Datagridviewformatter(DataGridView datag, string[] columns, string[] rows)
+        static public void Datagridviewformatter(DataGridView datag, string[] columns, string[] rows,bool mode=true)
         {
-            datag.Show();
-            datag.Rows.Clear();
-            datag.Columns.Clear();
-            foreach (string header in columns)
+            if(mode == true)
             {
-                DataGridViewColumn d = new DataGridViewTextBoxColumn
+                datag.Show();
+                datag.Rows.Clear();
+                datag.Columns.Clear();
+                foreach (string header in columns)
                 {
-                    HeaderText = header
-                };
-                datag.Columns.Add(d);
+                    DataGridViewColumn d = new DataGridViewTextBoxColumn
+                    {
+                        HeaderText = header
+                    };
+                    datag.Columns.Add(d);
+                }
+                if (rows.Length > 1) datag.Rows.Add(rows.Length - 1);
+                for (int i = 0; i < rows.Length; i++)
+                    datag.Rows[i].HeaderCell.Value = rows[i];
+                for (int i = 0; i < datag.Columns.Count; i++)
+                    datag.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                foreach (DataGridViewRow row in datag.Rows)
+                    row.Height = (datag.ClientRectangle.Height - datag.ColumnHeadersHeight) / datag.Rows.Count;
+                datag.RowHeadersWidth = 80;
+                datag.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                datag.ReadOnly = true;
             }
-            if (rows.Length > 1) datag.Rows.Add(rows.Length - 1);
-            for (int i = 0; i < rows.Length; i++)
-                datag.Rows[i].HeaderCell.Value = rows[i];
-            for (int i = 0; i < datag.Columns.Count; i++)
-                datag.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            foreach (DataGridViewRow row in datag.Rows)
-                row.Height = (datag.ClientRectangle.Height - datag.ColumnHeadersHeight) / datag.Rows.Count;
-            datag.RowHeadersWidth = 80;
-            datag.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            datag.ReadOnly = true;
+            else
+            {
+                datag.Hide();
+                datag.Rows.Clear();
+                datag.Columns.Clear();
+            }
         }
     }
 }

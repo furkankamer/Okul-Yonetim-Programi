@@ -233,9 +233,7 @@ namespace WindowsFormsApp1
         {
             button3.Enabled = false;
             comboBox6.SelectedIndex = -1;
-            dataGridView1.Rows.Clear();
-            dataGridView1.Columns.Clear();
-            dataGridView1.Hide();
+            Helpers.Datagridviewformatter(dataGridView1, null, null, false);
             Tableacilan = true;
             tablealinan = false;
             tablekayit = false;
@@ -261,9 +259,7 @@ namespace WindowsFormsApp1
             comboBox2.Enabled = false;
             Ders_Olusturma_Paneli.Visible = true;
             excel_paneli.Visible = false;
-            dataGridView1.Hide();
-            dataGridView1.Rows.Clear();
-            dataGridView1.Columns.Clear();
+            Helpers.Datagridviewformatter(dataGridView1, null, null, false);
             comboBox2.Enabled = true;
             comboBox2.Items.Clear();
             string gun = Helpers.Hangi_Gun(dateTimePicker1);
