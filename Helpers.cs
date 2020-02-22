@@ -24,7 +24,9 @@ namespace WindowsFormsApp1
                 {
                     string tablo_saat = datag.Rows[i].HeaderCell.Value.ToString();
                     string tablo_gun = datag.Columns[j].HeaderText;
-                    if (tablo_saat == saat && tablo_gun == gun) { indices[0] = i; indices[1] = j; break; }
+                    Color cellcolor = datag.Rows[i].Cells[j].Style.BackColor;
+                    if (tablo_saat == saat && tablo_gun == gun) { indices[0] = i; indices[1] = j; }
+                    else if(cellcolor != Color.Blue && cellcolor != Color.Green) datag.Rows[i].Cells[j].Style.BackColor = Color.DarkGray;
                 }
 
             }
@@ -147,7 +149,7 @@ namespace WindowsFormsApp1
         }
         static public void Email(string konu, string icerik, string maill)
         {
-            System.Net.Mail.SmtpClient sc = new SmtpClient
+            SmtpClient sc = new SmtpClient
             {
                 Port = 587,
                 Host = "smtp.live.com",

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Media;
 using System.Net;
@@ -174,7 +175,7 @@ namespace WindowsFormsApp1
             foreach(string hocaadi in mydict["Hocalar"])
             {
                 if(!comboBox6.Items.Contains(hocaadi))
-                    comboBox6.Items.Insert(0, hocaadi);
+                    comboBox6.Items.Add(hocaadi);
             }
         }
 
@@ -191,7 +192,7 @@ namespace WindowsFormsApp1
             comboBox2.Enabled = true;
             comboBox2.Items.Clear();
             string gun = Helpers.Hangi_Gun(dateTimePicker1);
-            string[,] hours = { { "14:30:00", "14:00:00", "13:00:00", "13:00:00" }, { "17:30:00", "17:00:00", "11:10:00", "10:50:00" } };
+            string[,] hours = { { "14:30:00", "14:00:00", "13:30:00", "13:00:00" }, { "17:30:00", "17:00:00", "11:10:00", "10:50:00" } };
             if (gun == "Cumartesi") for (int i = 0; i < 4; i++) { comboBox2.Items.Insert(0, hours[0, i]); }
             else for (int i = 0; i < 4; i++) { comboBox2.Items.Insert(0, hours[1, i]); }
         }
@@ -199,9 +200,9 @@ namespace WindowsFormsApp1
         {
             Player.Play();
             MessageBox.Show("Lütfen belirtilen alana kayıt olduğunuz mail adresinizi giriniz");
-            giriss_paneli.Visible = false;
-            Kayit_Paneli.Visible = false;
-            email_paneli.Visible = true;
+            giriss_paneli.Hide();
+            Kayit_Paneli.Hide();
+            email_paneli.Show();
         }
 
         private void Button9_Click(object sender, EventArgs e)
@@ -237,10 +238,10 @@ namespace WindowsFormsApp1
             foreach (Control control in cont)
                 control.Hide();
         }
-
-
+        
         private void Button15_Click(object sender, EventArgs e)
         {
+            Contract.Requires(Settings.GeneralSettings != string.Empty);
             tablealinan = true;
             tablekayit= false;
             Tableacilan = false;
@@ -422,10 +423,11 @@ namespace WindowsFormsApp1
         {
             dataGridView1.Enabled = false;
             tablealinan = true;
-            if (tablealinan)
+            Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
+            if (tablealinan && person.Unvan == "Ogrenci")
             { 
-            int rowind = dataGridView1.CurrentCell.RowIndex;
-            int colind = dataGridView1.CurrentCell.ColumnIndex;
+                    int rowind = dataGridView1.CurrentCell.RowIndex;
+                    int colind = dataGridView1.CurrentCell.ColumnIndex;
                     DialogResult dr = MessageBox.Show("Dersi İptal Et",
                           "Ders İptali", MessageBoxButtons.YesNo);
                     switch (dr)
@@ -436,7 +438,6 @@ namespace WindowsFormsApp1
                             string dershocasi = cellval.Split('\n')[1];
                             string dersgunu = dataGridView1.Columns[colind].HeaderText;
                             string derssaati = dataGridView1.Rows[rowind].HeaderCell.Value.ToString();
-                            Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
                             string unenroll = $@"delete from DersKayit where student_id = {person.Id} and
                                                  ders_id = (select Ders_ID from Dersler where 
                                                   hoca_id = (select Hoca_id from Hocalar where isim = '{dershocasi}') and DersAdi = '{dersadi}'
