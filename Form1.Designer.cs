@@ -250,7 +250,7 @@
             this.label3.BackColor = System.Drawing.Color.Brown;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(8, 49);
+            this.label3.Location = new System.Drawing.Point(3, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 12;
@@ -320,7 +320,7 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(8, 5);
+            this.label5.Location = new System.Drawing.Point(3, 5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 19);
             this.label5.TabIndex = 20;
@@ -333,7 +333,7 @@
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(8, 28);
+            this.label6.Location = new System.Drawing.Point(3, 27);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 19);
             this.label6.TabIndex = 21;
@@ -439,6 +439,7 @@
             this.cikis_butonu.TabIndex = 34;
             this.cikis_butonu.Text = "Çıkış";
             this.cikis_butonu.UseVisualStyleBackColor = false;
+            this.cikis_butonu.Visible = false;
             this.cikis_butonu.Click += new System.EventHandler(this.Button10_Click);
             this.cikis_butonu.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
             this.cikis_butonu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
@@ -489,6 +490,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(799, 209);
             this.dataGridView1.TabIndex = 39;
+            this.dataGridView1.Visible = false;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
             this.dataGridView1.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellMouseLeave);
@@ -546,10 +548,11 @@
             // 
             this.comboBox3.BackColor = System.Drawing.Color.Brown;
             this.comboBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox3.Enabled = false;
             this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(66, 69);
+            this.comboBox3.Location = new System.Drawing.Point(86, 69);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(158, 21);
             this.comboBox3.TabIndex = 47;
@@ -575,6 +578,7 @@
             // 
             this.comboBox4.BackColor = System.Drawing.Color.Brown;
             this.comboBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox4.Enabled = false;
             this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.comboBox4.FormattingEnabled = true;
@@ -648,7 +652,7 @@
             this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(75, 42);
+            this.comboBox5.Location = new System.Drawing.Point(86, 42);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(121, 21);
             this.comboBox5.TabIndex = 54;
@@ -687,7 +691,7 @@
             this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label16.Location = new System.Drawing.Point(8, 70);
+            this.label16.Location = new System.Drawing.Point(4, 70);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 19);
             this.label16.TabIndex = 58;
@@ -713,7 +717,7 @@
             this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label17.Location = new System.Drawing.Point(47, 5);
+            this.label17.Location = new System.Drawing.Point(44, 5);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 19);
             this.label17.TabIndex = 60;
@@ -808,6 +812,7 @@
             this.email_paneli.Name = "email_paneli";
             this.email_paneli.Size = new System.Drawing.Size(262, 34);
             this.email_paneli.TabIndex = 72;
+            this.email_paneli.Visible = false;
             // 
             // Ders_Secim_Paneli
             // 
@@ -822,6 +827,7 @@
             this.Ders_Secim_Paneli.Name = "Ders_Secim_Paneli";
             this.Ders_Secim_Paneli.Size = new System.Drawing.Size(274, 157);
             this.Ders_Secim_Paneli.TabIndex = 67;
+            this.Ders_Secim_Paneli.Visible = false;
             // 
             // Kayit_Paneli
             // 
@@ -838,10 +844,11 @@
             this.Kayit_Paneli.Controls.Add(this.textBox4);
             this.Kayit_Paneli.Controls.Add(this.label16);
             this.Kayit_Paneli.Controls.Add(this.comboBox7);
-            this.Kayit_Paneli.Location = new System.Drawing.Point(12, 175);
+            this.Kayit_Paneli.Location = new System.Drawing.Point(4, 140);
             this.Kayit_Paneli.Name = "Kayit_Paneli";
-            this.Kayit_Paneli.Size = new System.Drawing.Size(265, 161);
+            this.Kayit_Paneli.Size = new System.Drawing.Size(288, 161);
             this.Kayit_Paneli.TabIndex = 67;
+            this.Kayit_Paneli.Visible = false;
             // 
             // kayit_tamamla
             // 
@@ -898,10 +905,11 @@
             this.Ders_Olusturma_Paneli.Controls.Add(this.label10);
             this.Ders_Olusturma_Paneli.Controls.Add(this.button1);
             this.Ders_Olusturma_Paneli.Controls.Add(this.dateTimePicker1);
-            this.Ders_Olusturma_Paneli.Location = new System.Drawing.Point(496, 87);
+            this.Ders_Olusturma_Paneli.Location = new System.Drawing.Point(513, 91);
             this.Ders_Olusturma_Paneli.Name = "Ders_Olusturma_Paneli";
             this.Ders_Olusturma_Paneli.Size = new System.Drawing.Size(292, 202);
             this.Ders_Olusturma_Paneli.TabIndex = 68;
+            this.Ders_Olusturma_Paneli.Visible = false;
             // 
             // ogrenci_loggin_paneli
             // 
@@ -911,6 +919,7 @@
             this.ogrenci_loggin_paneli.Name = "ogrenci_loggin_paneli";
             this.ogrenci_loggin_paneli.Size = new System.Drawing.Size(302, 39);
             this.ogrenci_loggin_paneli.TabIndex = 68;
+            this.ogrenci_loggin_paneli.Visible = false;
             // 
             // ogretmen_loggin_paneli
             // 
@@ -920,6 +929,7 @@
             this.ogretmen_loggin_paneli.Name = "ogretmen_loggin_paneli";
             this.ogretmen_loggin_paneli.Size = new System.Drawing.Size(293, 33);
             this.ogretmen_loggin_paneli.TabIndex = 69;
+            this.ogretmen_loggin_paneli.Visible = false;
             // 
             // excel_paneli
             // 
@@ -930,6 +940,7 @@
             this.excel_paneli.Name = "excel_paneli";
             this.excel_paneli.Size = new System.Drawing.Size(396, 71);
             this.excel_paneli.TabIndex = 70;
+            this.excel_paneli.Visible = false;
             // 
             // giriss_paneli
             // 
@@ -938,10 +949,11 @@
             this.giriss_paneli.Controls.Add(this.label1);
             this.giriss_paneli.Controls.Add(this.textBox2);
             this.giriss_paneli.Controls.Add(this.textBox1);
-            this.giriss_paneli.Location = new System.Drawing.Point(12, 87);
+            this.giriss_paneli.Location = new System.Drawing.Point(0, 56);
             this.giriss_paneli.Name = "giriss_paneli";
-            this.giriss_paneli.Size = new System.Drawing.Size(228, 82);
+            this.giriss_paneli.Size = new System.Drawing.Size(277, 84);
             this.giriss_paneli.TabIndex = 71;
+            this.giriss_paneli.Visible = false;
             // 
             // Form1
             // 

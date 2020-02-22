@@ -31,11 +31,6 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             Settings.GeneralSettings = String.Empty;
-            Control[] cont = {dataGridView1,cikis_butonu, giriss_paneli, Kayit_Paneli, Ders_Olusturma_Paneli, Ders_Secim_Paneli,
-                excel_paneli, ogrenci_loggin_paneli,ogretmen_loggin_paneli,email_paneli };
-            foreach (Control control in cont)
-                control.Hide();
-            button3.Enabled = false;
             Helpers.DateTimePickerFormatter(dateTimePicker1);
             textBox2.PasswordChar = '*';
             textBox2.MaxLength = 10;
@@ -56,8 +51,7 @@ namespace WindowsFormsApp1
                 com.DropDownStyle = ComboBoxStyle.DropDownList;
             kullanici_tipi.Items.Add("Ogrenci");
             kullanici_tipi.Items.Add("Ogretmen");
-            label4.Hide();
-            textBox4.Hide();
+            
         }
         
         private bool blnButtonDown = false;
@@ -124,9 +118,10 @@ namespace WindowsFormsApp1
         private void Giris_Click(object sender, EventArgs e)
         {
             Player.Play();
-            giriss_paneli.Visible = true;
-            Kayit_Paneli.Visible = false;
-            email_paneli.Visible = false;
+            giriss_paneli.Show();
+            Kayit_Paneli.Hide();
+            email_paneli.Hide();
+            tamam.Show();
         }
 
         private void Kayit_Click(object sender, EventArgs e)
@@ -160,7 +155,6 @@ namespace WindowsFormsApp1
         }
         private void Button6_Click(object sender, EventArgs e)
         {
-            button3.Enabled = false;
             comboBox6.SelectedIndex = -1;
             Helpers.Datagridviewformatter(dataGridView1, null, null, false);
             Tableacilan = true;
@@ -241,7 +235,7 @@ namespace WindowsFormsApp1
         
         private void Button15_Click(object sender, EventArgs e)
         {
-            Contract.Requires(Settings.GeneralSettings != string.Empty);
+            if (Settings.GeneralSettings == string.Empty) return;
             tablealinan = true;
             tablekayit= false;
             Tableacilan = false;
@@ -251,9 +245,9 @@ namespace WindowsFormsApp1
             string[] hoursrow = { "10:50:00", "11:10:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "17:00:00", "17:30:00" };
             Helpers.Datagridviewformatter(dataGridView1, headerscol, hoursrow);
             Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
-            string dersler = $@"select Dersler.DersGünü,Dersler.DersAdi, Dersler.hoca_id[hocaid], cast(Dersler.date2 as time(0))[time]
-                                from Dersler inner join DersKayit on DersKayit.ders_id = Dersler.Ders_ID
-                                where derskayit.student_id = '{person.Id}' ";
+            string dersler = $@"select Dersler.DersGünü,Dersler.DersAdi, Dersler.hoca_id[hocaid], 
+                                cast(Dersler.date2 as time(0))[time] from Dersler inner join DersKayit 
+                                on DersKayit.ders_id = Dersler.Ders_ID where derskayit.student_id = '{person.Id}' ";
             Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(dersler);
             int timec = mydict["time"].Count;
             for (int i = 0; i < timec; i++)
@@ -326,8 +320,7 @@ namespace WindowsFormsApp1
             Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(str);
             foreach(string hocaadi in mydict["Hocalar"])
             {
-                if (!comboBox3.Items.Contains(hocaadi))
-                    comboBox3.Items.Insert(0, hocaadi);
+                if (!comboBox3.Items.Contains(hocaadi)) comboBox3.Items.Insert(0, hocaadi);
             }
             if(comboBox3.Items.Count == 0 && clicked > 1)
             {
@@ -439,8 +432,9 @@ namespace WindowsFormsApp1
                             string dersgunu = dataGridView1.Columns[colind].HeaderText;
                             string derssaati = dataGridView1.Rows[rowind].HeaderCell.Value.ToString();
                             string unenroll = $@"delete from DersKayit where student_id = {person.Id} and
-                                                 ders_id = (select Ders_ID from Dersler where 
-                                                  hoca_id = (select Hoca_id from Hocalar where isim = '{dershocasi}') and DersAdi = '{dersadi}'
+                                                  ders_id = (select Ders_ID from Dersler where 
+                                                  hoca_id = (select Hoca_id from Hocalar where 
+                                                  isim = '{dershocasi}') and DersAdi = '{dersadi}'
                                                   and cast(date2 as time(0)) = '{derssaati}'
                                                   and DersGünü = '{dersgunu}')";
                         if (Helpers.Sqlexecuter(unenroll, 0) == "null")
@@ -554,11 +548,11 @@ namespace WindowsFormsApp1
             dataGridView1.MultiSelect = true;
             dataGridView1.SelectAll();
             DataObject dataObj = dataGridView1.GetClipboardContent();
-            if (dataObj != null)
-                Clipboard.SetDataObject(dataObj);
+            if (dataObj != null) Clipboard.SetDataObject(dataObj);
         }
         private void Button3_Click_1(object sender, EventArgs e)
         {
+            if (comboBox6.SelectedIndex == -1) return;
             SaveFileDialog savefile = new SaveFileDialog
             {
                 FileName = comboBox6.Text,
@@ -652,5 +646,6 @@ namespace WindowsFormsApp1
                 else MessageBox.Show("Kullanici adi alinmis. Lutfen tekrar deneyiniz");
             }
         }
+
     }
 }
