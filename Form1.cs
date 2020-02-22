@@ -29,26 +29,16 @@ namespace WindowsFormsApp1
         readonly System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.dad2);
         public Form1()
         {
-            
             InitializeComponent();
             Settings.GeneralSettings = String.Empty;
-            cikis_butonu.Hide();
-            Panel[] pnl = { giriss_paneli, Kayit_Paneli, Ders_Olusturma_Paneli, Ders_Secim_Paneli,
+            Control[] cont = {dataGridView1,cikis_butonu, giriss_paneli, Kayit_Paneli, Ders_Olusturma_Paneli, Ders_Secim_Paneli,
                 excel_paneli, ogrenci_loggin_paneli,ogretmen_loggin_paneli,email_paneli };
-            foreach (Panel panel in pnl)
-                panel.Hide();
+            foreach (Control control in cont)
+                control.Hide();
             button3.Enabled = false;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
-            dateTimePicker1.MinDate = DateTime.Now.AddDays((8-DateTime.Today.DayOfWeek - DayOfWeek.Sunday));
-            dateTimePicker1.MaxDate = DateTime.Now.AddDays((8-DateTime.Today.DayOfWeek - DayOfWeek.Sunday)).AddDays(5);
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "yyyy-MM-dddd";
+            Helpers.DateTimePickerFormatter(dateTimePicker1);
             textBox2.PasswordChar = '*';
-            dataGridView1.Hide();
             textBox2.MaxLength = 10;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            dateTimePicker1.Hide();
-            dateTimePicker1.CustomFormat = "yyyy-MM-dddd";
             int[] sinif = { 12, 11, 10, 9 };
             foreach(int i in sinif)
             {
@@ -58,49 +48,29 @@ namespace WindowsFormsApp1
             string[] dersler = { "Ingilizce", "Biyoloji", "Kimya", "Fizik", "Matematik", "Turkce", "Edebiyat" };
             foreach(string ders in dersler)
             {
-                comboBox1.Items.Insert(0, ders);
-                comboBox5.Items.Insert(0, ders);
+                comboBox1.Items.Add(ders);
+                comboBox5.Items.Add(ders);
             }
-            ComboBox[] cmb = { comboBox3 , comboBox4, comboBox5, comboBox2, comboBox8 };
+            ComboBox[] cmb = { kullanici_tipi,comboBox1, comboBox3 , comboBox4, comboBox5, comboBox2, comboBox8 };
             foreach(ComboBox com in cmb)
                 com.DropDownStyle = ComboBoxStyle.DropDownList;
+            kullanici_tipi.Items.Add("Ogrenci");
+            kullanici_tipi.Items.Add("Ogretmen");
+            kullanici_tipi.SelectedIndex = 1;
         }
         
         private bool blnButtonDown = false;
         public bool Tableacilan { get => tableacilan; set => tableacilan = value; }
         public SoundPlayer Player => player;
-
         public Color Renk { get => renk; set => renk = value; }
-
-        static public void Email(string konu, string icerik, string maill)
-        {
-            SmtpClient sc = new SmtpClient
-            {
-                Port = 587,
-                Host = "smtp.live.com",
-                EnableSsl = true,
-                Timeout = 50000,
-                Credentials = new NetworkCredential("furkankamer@hotmail.com", "****kollama38****")
-            };
-            MailMessage mail = new MailMessage
-            {
-                From = new MailAddress("furkankamer@hotmail.com", "furkan")
-            };
-            mail.To.Add(maill);
-            mail.Subject = icerik;
-            mail.IsBodyHtml = true;
-            mail.Body = konu;
-            sc.Send(mail);
-        }
+        
         private void Button1_Click(object sender, EventArgs e)
         {
             if (dateTimePicker1.Value.Date > DateTime.Now && comboBox1.Text != "" && comboBox8.Text != "" && comboBox2.Text != "" && (comboBox9.Text != "" || textBox8.Text != ""))
             {
                 string name;
-                if (listeden_sec.Checked)
-                    name = comboBox9.Text;
-                else
-                    name = textBox8.Text;
+                if (listeden_sec.Checked) name = comboBox9.Text;
+                else name = textBox8.Text;
                 myDate = dateTimePicker1.Value.Date;
                 string gun = Helpers.Hangi_Gun(dateTimePicker1);
                 string date = myDate.ToString("yyyy - MM - dd ");
@@ -172,13 +142,11 @@ namespace WindowsFormsApp1
         {
             if (kayitt == true)
             {
-                if((ogretmen.Checked == true && textBox4.Text == "385") || ogrenci.Checked == true)
+                if((kullanici_tipi.Text == "Ogretmen" && textBox4.Text == "385") || kullanici_tipi.Text == "Ogrenci")
                 {
                     string yenikayit = $@"INSERT INTO Kisiler (kullaniciadi,sifre,isim,soyisim,mail,unvan)
                                         values('{textBox1.Text}','{textBox2.Text}','{textBox6.Text}',
-                                        '{textBox5.Text}','{textBox3.Text}',";
-                    if (ogrenci.Checked) yenikayit += $@"'{ogrenci.Text}')";
-                    else yenikayit += $@"'{ogretmen.Text}')";
+                                        '{textBox5.Text}','{textBox3.Text}','{kullanici_tipi.Text}')";
                     string success = Helpers.Sqlexecuter(yenikayit, 0);
                     if (success == "")
                     {
@@ -203,11 +171,10 @@ namespace WindowsFormsApp1
                     Dictionary<string, List<string>> persondict = Helpers.Sqlreaderexecuter(personget);
                     Person person = new Person(persondict, textBox1.Text);
                     Settings.GeneralSettings = JsonConvert.SerializeObject(person);
-                    if (persondict["unvan"].Contains(ogretmen.Text)) ogretmen_loggin_paneli.Show();
+                    if (persondict["unvan"].Contains("Ogretmen")) ogretmen_loggin_paneli.Show();
                     else ogrenci_loggin_paneli.Show();
-                    giriss_paneli.Hide();
-                    Giris_Paneli.Hide();
-                    Kayit_Paneli.Hide();
+                    Panel[] pnl = { giriss_paneli , Giris_Paneli , Kayit_Paneli };
+                    foreach (Panel panel in pnl) panel.Hide();
                     cikis_butonu.Show();
                 }
                 else if (sifre == "null") MessageBox.Show("böyle bir kullanici adi yok");
@@ -215,20 +182,6 @@ namespace WindowsFormsApp1
             }
 
         }
-
-        private void Ogrenci_CheckedChanged(object sender, EventArgs e)
-        {
-            label4.Hide();
-            textBox4.Hide();
-        }
-
-        private void Ogretmen_CheckedChanged(object sender, EventArgs e)
-        {
-            comboBox7.Enabled = false;
-            label4.Show();
-            textBox4.Show();
-        }
-        
         private void Button6_Click(object sender, EventArgs e)
         {
             button3.Enabled = false;
@@ -286,7 +239,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                Email(obj.ToString(), "sifreniz", textBox7.Text);
+                Helpers.Email(obj.ToString(), "sifreniz", textBox7.Text);
                 MessageBox.Show("sifreniz email adresinize gönderilmiştir");
             }
 
@@ -304,12 +257,10 @@ namespace WindowsFormsApp1
                 combo.SelectedIndex = -1;
             }
             Giris_Paneli.Show();
-            Panel[] pnl = { ogrenci_loggin_paneli , ogretmen_loggin_paneli , Ders_Olusturma_Paneli, Ders_Secim_Paneli, excel_paneli,
+            Control[] cont = { cikis_butonu,dataGridView1,ogrenci_loggin_paneli , ogretmen_loggin_paneli , Ders_Olusturma_Paneli, Ders_Secim_Paneli, excel_paneli,
             giriss_paneli,Kayit_Paneli,email_paneli};
-            foreach (Panel panel in pnl)
-                panel.Hide();
-            dataGridView1.Hide();
-            cikis_butonu.Hide();
+            foreach (Control control in cont)
+                control.Hide();
         }
 
 
@@ -319,7 +270,7 @@ namespace WindowsFormsApp1
             tablekayit= false;
             Tableacilan = false;
             Player.Play();
-            Ders_Secim_Paneli.Visible = false;
+            Ders_Secim_Paneli.Hide();
             string[] headerscol = { "Pazartesi", "Sali", "Çarşamba", "Persembe", "Cuma", "Cumartesi" };
             string[] hoursrow = { "10:50:00", "11:10:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "17:00:00", "17:30:00" };
             Helpers.Datagridviewformatter(dataGridView1, headerscol, hoursrow);
@@ -347,7 +298,7 @@ namespace WindowsFormsApp1
             Tableacilan = false;
             Player.Play();
             dataGridView1.Hide();
-            Ders_Secim_Paneli.Visible = true;
+            Ders_Secim_Paneli.Show();
             comboBox5.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
             comboBox4.SelectedIndex = -1;
@@ -373,7 +324,6 @@ namespace WindowsFormsApp1
                     
                     if (mydict["date"].Contains(dataGridView1.Columns[j].HeaderText))
                     {
-                            
                             dataGridView1.Rows[0].Cells[j].Value = "Seç";
                             dataGridView1.Rows[0].Cells[j].Style.BackColor = Color.Green;
                     }
@@ -383,7 +333,6 @@ namespace WindowsFormsApp1
                             dataGridView1.Rows[0].Cells[j].Style.BackColor = Color.Red;
                     }
                 }
-                
             }
             else
             {
@@ -542,18 +491,14 @@ namespace WindowsFormsApp1
             int colc = dataGridView1.Columns.Count;
             if (e.RowIndex < rowc && e.ColumnIndex < colc && e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.DarkGray)
             {
-
                 if(e.RowIndex != crow || e.ColumnIndex != ccol)
                 {
                     crow = e.RowIndex;
                     ccol = e.ColumnIndex;
                     Renk = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor;
                 }
-                
                 dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.LightSkyBlue;
             }
-            
-            
         }
 
         private void DataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
@@ -575,34 +520,33 @@ namespace WindowsFormsApp1
         {
             if (blnButtonDown == false)
             {
-                    ControlPaint.DrawBorder(e.Graphics, (sender as System.Windows.Forms.Button).ClientRectangle,
-                    System.Drawing.SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset,
-                    System.Drawing.SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset,
-                    System.Drawing.SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset,
-                    System.Drawing.SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset);
+                    ControlPaint.DrawBorder(e.Graphics, (sender as Button).ClientRectangle,
+                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset,
+                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset,
+                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset,
+                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset);
             }
             else
             {
-                    ControlPaint.DrawBorder(e.Graphics, (sender as System.Windows.Forms.Button).ClientRectangle,
-                    System.Drawing.SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset,
-                    System.Drawing.SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset,
-                    System.Drawing.SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset,
-                    System.Drawing.SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset);
+                    ControlPaint.DrawBorder(e.Graphics, (sender as Button).ClientRectangle,
+                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset,
+                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset,
+                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset,
+                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset);
             }
         }
 
         private void Button15_MouseDown(object sender, MouseEventArgs e)
         {
             blnButtonDown = true;
-            (sender as System.Windows.Forms.Button).Invalidate();
+            (sender as Button).Invalidate();
         }
 
         private void Button15_MouseUp(object sender, MouseEventArgs e)
         {
             blnButtonDown = false;
-            (sender as System.Windows.Forms.Button).Invalidate();
+            (sender as Button).Invalidate();
         }
-
         private void ComboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboBox6.Text !="")
@@ -647,9 +591,9 @@ namespace WindowsFormsApp1
             if (savefile.ShowDialog() == DialogResult.OK)
             {
                 CopyAlltoClipboard();
-                Microsoft.Office.Interop.Excel.Application xlexcel;
-                Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
-                Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+                Excel.Application xlexcel;
+                Excel.Workbook xlWorkBook;
+                Excel.Worksheet xlWorkSheet;
                 object misValue = System.Reflection.Missing.Value;
                 xlexcel = new Excel.Application
                 {
@@ -698,5 +642,19 @@ namespace WindowsFormsApp1
             
         }
 
+        private void Kullanici_tipi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(kullanici_tipi.Text == "Ogretmen")
+            {
+                textBox4.Show();
+                label4.Show();
+            }
+            else
+            {
+                textBox4.Hide();
+                label4.Hide();
+            }
+                
+        }
     }
 }

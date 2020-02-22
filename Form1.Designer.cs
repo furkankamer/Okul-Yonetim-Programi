@@ -40,8 +40,6 @@
             this.kayit = new System.Windows.Forms.Button();
             this.tamam = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.ogrenci = new System.Windows.Forms.RadioButton();
-            this.ogretmen = new System.Windows.Forms.RadioButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -86,6 +84,8 @@
             this.email_paneli = new System.Windows.Forms.Panel();
             this.Ders_Secim_Paneli = new System.Windows.Forms.Panel();
             this.Kayit_Paneli = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.kullanici_tipi = new System.Windows.Forms.ComboBox();
             this.Ders_Olusturma_Paneli = new System.Windows.Forms.Panel();
             this.ogrenci_loggin_paneli = new System.Windows.Forms.Panel();
             this.ogretmen_loggin_paneli = new System.Windows.Forms.Panel();
@@ -255,36 +255,6 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "e-mail adresi";
             // 
-            // ogrenci
-            // 
-            this.ogrenci.AutoSize = true;
-            this.ogrenci.BackColor = System.Drawing.Color.Brown;
-            this.ogrenci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ogrenci.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ogrenci.Location = new System.Drawing.Point(9, 115);
-            this.ogrenci.Name = "ogrenci";
-            this.ogrenci.Size = new System.Drawing.Size(61, 17);
-            this.ogrenci.TabIndex = 13;
-            this.ogrenci.TabStop = true;
-            this.ogrenci.Text = "Ogrenci";
-            this.ogrenci.UseVisualStyleBackColor = false;
-            this.ogrenci.CheckedChanged += new System.EventHandler(this.Ogrenci_CheckedChanged);
-            // 
-            // ogretmen
-            // 
-            this.ogretmen.AutoSize = true;
-            this.ogretmen.BackColor = System.Drawing.Color.Brown;
-            this.ogretmen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ogretmen.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ogretmen.Location = new System.Drawing.Point(9, 138);
-            this.ogretmen.Name = "ogretmen";
-            this.ogretmen.Size = new System.Drawing.Size(70, 17);
-            this.ogretmen.TabIndex = 14;
-            this.ogretmen.TabStop = true;
-            this.ogretmen.Text = "Ogretmen";
-            this.ogretmen.UseVisualStyleBackColor = false;
-            this.ogretmen.CheckedChanged += new System.EventHandler(this.Ogretmen_CheckedChanged);
-            // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.Color.Brown;
@@ -301,9 +271,9 @@
             this.textBox4.BackColor = System.Drawing.Color.Brown;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox4.Location = new System.Drawing.Point(131, 133);
+            this.textBox4.Location = new System.Drawing.Point(201, 134);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(61, 20);
             this.textBox4.TabIndex = 16;
             this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
             // 
@@ -314,7 +284,7 @@
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(97, 138);
+            this.label4.Location = new System.Drawing.Point(169, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 15);
             this.label4.TabIndex = 17;
@@ -854,14 +824,14 @@
             // 
             // Kayit_Paneli
             // 
+            this.Kayit_Paneli.Controls.Add(this.label18);
+            this.Kayit_Paneli.Controls.Add(this.kullanici_tipi);
             this.Kayit_Paneli.Controls.Add(this.label5);
             this.Kayit_Paneli.Controls.Add(this.textBox6);
             this.Kayit_Paneli.Controls.Add(this.label6);
             this.Kayit_Paneli.Controls.Add(this.textBox5);
             this.Kayit_Paneli.Controls.Add(this.label3);
             this.Kayit_Paneli.Controls.Add(this.textBox3);
-            this.Kayit_Paneli.Controls.Add(this.ogrenci);
-            this.Kayit_Paneli.Controls.Add(this.ogretmen);
             this.Kayit_Paneli.Controls.Add(this.label4);
             this.Kayit_Paneli.Controls.Add(this.textBox4);
             this.Kayit_Paneli.Controls.Add(this.label16);
@@ -870,6 +840,32 @@
             this.Kayit_Paneli.Name = "Kayit_Paneli";
             this.Kayit_Paneli.Size = new System.Drawing.Size(265, 161);
             this.Kayit_Paneli.TabIndex = 67;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Brown;
+            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label18.Location = new System.Drawing.Point(8, 138);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(68, 15);
+            this.label18.TabIndex = 61;
+            this.label18.Text = "Kullanıcı Tipi";
+            // 
+            // kullanici_tipi
+            // 
+            this.kullanici_tipi.BackColor = System.Drawing.Color.Brown;
+            this.kullanici_tipi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.kullanici_tipi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.kullanici_tipi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kullanici_tipi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.kullanici_tipi.FormattingEnabled = true;
+            this.kullanici_tipi.Location = new System.Drawing.Point(82, 132);
+            this.kullanici_tipi.Name = "kullanici_tipi";
+            this.kullanici_tipi.Size = new System.Drawing.Size(81, 21);
+            this.kullanici_tipi.TabIndex = 60;
+            this.kullanici_tipi.SelectedIndexChanged += new System.EventHandler(this.Kullanici_tipi_SelectedIndexChanged);
             // 
             // Ders_Olusturma_Paneli
             // 
@@ -987,8 +983,6 @@
         private System.Windows.Forms.Button kayit;
         private System.Windows.Forms.Button tamam;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton ogrenci;
-        private System.Windows.Forms.RadioButton ogretmen;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
@@ -1038,6 +1032,8 @@
         private System.Windows.Forms.Panel excel_paneli;
         private System.Windows.Forms.Panel giriss_paneli;
         private System.Windows.Forms.Panel email_paneli;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox kullanici_tipi;
     }
 }
 

@@ -7,6 +7,10 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Net;
+using System.Net.Mail;
+using System.Drawing;
+
 namespace WindowsFormsApp1
 {
     class Helpers
@@ -114,6 +118,7 @@ namespace WindowsFormsApp1
                 datag.Show();
                 datag.Rows.Clear();
                 datag.Columns.Clear();
+                datag.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
                 foreach (string header in columns)
                 {
                     DataGridViewColumn d = new DataGridViewTextBoxColumn
@@ -139,6 +144,34 @@ namespace WindowsFormsApp1
                 datag.Rows.Clear();
                 datag.Columns.Clear();
             }
+        }
+        static public void Email(string konu, string icerik, string maill)
+        {
+            System.Net.Mail.SmtpClient sc = new SmtpClient
+            {
+                Port = 587,
+                Host = "smtp.live.com",
+                EnableSsl = true,
+                Timeout = 50000,
+                Credentials = new NetworkCredential("furkankamer@hotmail.com", "****kollama38****")
+            };
+            MailMessage mail = new MailMessage
+            {
+                From = new MailAddress("furkankamer@hotmail.com", "furkan")
+            };
+            mail.To.Add(maill);
+            mail.Subject = icerik;
+            mail.IsBodyHtml = true;
+            mail.Body = konu;
+            sc.Send(mail);
+        }
+        static public void DateTimePickerFormatter(DateTimePicker datet)
+        {
+            datet.MinDate = DateTime.Now.AddDays((8 - DateTime.Today.DayOfWeek - DayOfWeek.Sunday));
+            datet.MaxDate = DateTime.Now.AddDays((8 - DateTime.Today.DayOfWeek - DayOfWeek.Sunday)).AddDays(5);
+            datet.Format = DateTimePickerFormat.Custom;
+            datet.CustomFormat = "yyyy-MM-dddd";
+            datet.Hide();
         }
     }
 }
