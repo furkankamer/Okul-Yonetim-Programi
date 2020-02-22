@@ -84,6 +84,7 @@
             this.email_paneli = new System.Windows.Forms.Panel();
             this.Ders_Secim_Paneli = new System.Windows.Forms.Panel();
             this.Kayit_Paneli = new System.Windows.Forms.Panel();
+            this.kayit_tamamla = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.kullanici_tipi = new System.Windows.Forms.ComboBox();
             this.Ders_Olusturma_Paneli = new System.Windows.Forms.Panel();
@@ -127,7 +128,7 @@
             this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateTimePicker1.CustomFormat = "";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(87, 54);
+            this.dateTimePicker1.Location = new System.Drawing.Point(94, 54);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(192, 20);
             this.dateTimePicker1.TabIndex = 1;
@@ -156,7 +157,7 @@
             this.giris.Name = "giris";
             this.giris.Size = new System.Drawing.Size(75, 23);
             this.giris.TabIndex = 5;
-            this.giris.Text = "giris";
+            this.giris.Text = "Giriş Yap";
             this.giris.UseVisualStyleBackColor = false;
             this.giris.Click += new System.EventHandler(this.Giris_Click);
             this.giris.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
@@ -168,7 +169,7 @@
             this.textBox1.BackColor = System.Drawing.Color.Brown;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox1.Location = new System.Drawing.Point(97, 3);
+            this.textBox1.Location = new System.Drawing.Point(97, 11);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 6;
@@ -179,7 +180,7 @@
             this.textBox2.BackColor = System.Drawing.Color.Brown;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox2.Location = new System.Drawing.Point(97, 26);
+            this.textBox2.Location = new System.Drawing.Point(97, 33);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 7;
@@ -192,7 +193,7 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(8, 0);
+            this.label1.Location = new System.Drawing.Point(8, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 19);
             this.label1.TabIndex = 8;
@@ -205,7 +206,7 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(54, 27);
+            this.label2.Location = new System.Drawing.Point(8, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 19);
             this.label2.TabIndex = 9;
@@ -216,11 +217,11 @@
             this.kayit.BackColor = System.Drawing.Color.Brown;
             this.kayit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.kayit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.kayit.Location = new System.Drawing.Point(253, 16);
+            this.kayit.Location = new System.Drawing.Point(225, 16);
             this.kayit.Name = "kayit";
             this.kayit.Size = new System.Drawing.Size(75, 23);
             this.kayit.TabIndex = 10;
-            this.kayit.Text = "kayit ol";
+            this.kayit.Text = "Kayıt Ol";
             this.kayit.UseVisualStyleBackColor = false;
             this.kayit.Click += new System.EventHandler(this.Kayit_Click);
             this.kayit.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
@@ -232,7 +233,7 @@
             this.tamam.BackColor = System.Drawing.Color.Brown;
             this.tamam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tamam.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tamam.Location = new System.Drawing.Point(122, 52);
+            this.tamam.Location = new System.Drawing.Point(122, 55);
             this.tamam.Name = "tamam";
             this.tamam.Size = new System.Drawing.Size(75, 23);
             this.tamam.TabIndex = 11;
@@ -249,7 +250,7 @@
             this.label3.BackColor = System.Drawing.Color.Brown;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(3, 88);
+            this.label3.Location = new System.Drawing.Point(8, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 15);
             this.label3.TabIndex = 12;
@@ -260,7 +261,7 @@
             this.textBox3.BackColor = System.Drawing.Color.Brown;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox3.Location = new System.Drawing.Point(76, 83);
+            this.textBox3.Location = new System.Drawing.Point(81, 47);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(178, 20);
             this.textBox3.TabIndex = 15;
@@ -271,7 +272,7 @@
             this.textBox4.BackColor = System.Drawing.Color.Brown;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox4.Location = new System.Drawing.Point(201, 134);
+            this.textBox4.Location = new System.Drawing.Point(201, 97);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(61, 20);
             this.textBox4.TabIndex = 16;
@@ -284,7 +285,7 @@
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(169, 138);
+            this.label4.Location = new System.Drawing.Point(169, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 15);
             this.label4.TabIndex = 17;
@@ -295,7 +296,7 @@
             this.textBox5.BackColor = System.Drawing.Color.Brown;
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox5.Location = new System.Drawing.Point(76, 54);
+            this.textBox5.Location = new System.Drawing.Point(81, 27);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 18;
@@ -306,7 +307,7 @@
             this.textBox6.BackColor = System.Drawing.Color.Brown;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox6.Location = new System.Drawing.Point(76, 28);
+            this.textBox6.Location = new System.Drawing.Point(81, 6);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 19;
@@ -319,7 +320,7 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(19, 29);
+            this.label5.Location = new System.Drawing.Point(8, 5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 19);
             this.label5.TabIndex = 20;
@@ -332,7 +333,7 @@
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(3, 57);
+            this.label6.Location = new System.Drawing.Point(8, 28);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 19);
             this.label6.TabIndex = 21;
@@ -449,7 +450,7 @@
             this.label8.BackColor = System.Drawing.Color.Brown;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(41, 32);
+            this.label8.Location = new System.Drawing.Point(43, 32);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 35;
@@ -473,7 +474,7 @@
             this.label10.BackColor = System.Drawing.Color.Brown;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(3, 58);
+            this.label10.Location = new System.Drawing.Point(10, 57);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 17);
             this.label10.TabIndex = 37;
@@ -499,7 +500,7 @@
             this.label11.BackColor = System.Drawing.Color.Brown;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(23, 127);
+            this.label11.Location = new System.Drawing.Point(19, 127);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 17);
             this.label11.TabIndex = 41;
@@ -510,7 +511,7 @@
             this.textBox8.BackColor = System.Drawing.Color.Brown;
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox8.Location = new System.Drawing.Point(98, 128);
+            this.textBox8.Location = new System.Drawing.Point(94, 124);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(182, 20);
             this.textBox8.TabIndex = 42;
@@ -686,7 +687,7 @@
             this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label16.Location = new System.Drawing.Point(87, 106);
+            this.label16.Location = new System.Drawing.Point(8, 70);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 19);
             this.label16.TabIndex = 58;
@@ -700,7 +701,7 @@
             this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(144, 106);
+            this.comboBox7.Location = new System.Drawing.Point(81, 70);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(81, 21);
             this.comboBox7.TabIndex = 59;
@@ -712,7 +713,7 @@
             this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label17.Location = new System.Drawing.Point(44, 5);
+            this.label17.Location = new System.Drawing.Point(47, 5);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 19);
             this.label17.TabIndex = 60;
@@ -752,7 +753,7 @@
             this.comboBox9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(111, 129);
+            this.comboBox9.Location = new System.Drawing.Point(94, 124);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(175, 21);
             this.comboBox9.TabIndex = 63;
@@ -763,7 +764,7 @@
             this.listeden_sec.BackColor = System.Drawing.Color.Brown;
             this.listeden_sec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.listeden_sec.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.listeden_sec.Location = new System.Drawing.Point(80, 107);
+            this.listeden_sec.Location = new System.Drawing.Point(94, 107);
             this.listeden_sec.Name = "listeden_sec";
             this.listeden_sec.Size = new System.Drawing.Size(46, 17);
             this.listeden_sec.TabIndex = 64;
@@ -778,7 +779,7 @@
             this.radioButton2.BackColor = System.Drawing.Color.Brown;
             this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioButton2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButton2.Location = new System.Drawing.Point(131, 107);
+            this.radioButton2.Location = new System.Drawing.Point(145, 107);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(69, 17);
             this.radioButton2.TabIndex = 65;
@@ -824,6 +825,7 @@
             // 
             // Kayit_Paneli
             // 
+            this.Kayit_Paneli.Controls.Add(this.kayit_tamamla);
             this.Kayit_Paneli.Controls.Add(this.label18);
             this.Kayit_Paneli.Controls.Add(this.kullanici_tipi);
             this.Kayit_Paneli.Controls.Add(this.label5);
@@ -841,13 +843,26 @@
             this.Kayit_Paneli.Size = new System.Drawing.Size(265, 161);
             this.Kayit_Paneli.TabIndex = 67;
             // 
+            // kayit_tamamla
+            // 
+            this.kayit_tamamla.BackColor = System.Drawing.Color.Brown;
+            this.kayit_tamamla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kayit_tamamla.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.kayit_tamamla.Location = new System.Drawing.Point(164, 132);
+            this.kayit_tamamla.Name = "kayit_tamamla";
+            this.kayit_tamamla.Size = new System.Drawing.Size(91, 23);
+            this.kayit_tamamla.TabIndex = 12;
+            this.kayit_tamamla.Text = "Kaydı Tamamla";
+            this.kayit_tamamla.UseVisualStyleBackColor = false;
+            this.kayit_tamamla.Click += new System.EventHandler(this.Kayit_tamamla_Click);
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Brown;
             this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label18.Location = new System.Drawing.Point(8, 138);
+            this.label18.Location = new System.Drawing.Point(3, 99);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(68, 15);
             this.label18.TabIndex = 61;
@@ -861,7 +876,7 @@
             this.kullanici_tipi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.kullanici_tipi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.kullanici_tipi.FormattingEnabled = true;
-            this.kullanici_tipi.Location = new System.Drawing.Point(82, 132);
+            this.kullanici_tipi.Location = new System.Drawing.Point(81, 97);
             this.kullanici_tipi.Name = "kullanici_tipi";
             this.kullanici_tipi.Size = new System.Drawing.Size(81, 21);
             this.kullanici_tipi.TabIndex = 60;
@@ -1034,6 +1049,7 @@
         private System.Windows.Forms.Panel email_paneli;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox kullanici_tipi;
+        private System.Windows.Forms.Button kayit_tamamla;
     }
 }
 

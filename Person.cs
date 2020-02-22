@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace WindowsFormsApp1
         public string Name { get; set; }
         public string Secondname { get; set; }
         public string Sinif { get; set; }
-        public string İd { get; set; }
+        public string Id { get; set; }
         public string Email { get; set; }
         public string Unvan { get; set; }
         
@@ -24,7 +25,19 @@ namespace WindowsFormsApp1
             Email = persondict["mail"][0];
             Unvan = persondict["unvan"][0];
             Sinif = persondict["Sınıf"][0];
-            İd = persondict["Personid"][0];
+            Id = persondict["Personid"][0];
+        }
+
+        [JsonConstructor]
+        public Person(string username,string name,string sname, string mail, string unvan,string snf, string id)
+        {
+            User = username;
+            Name = name;
+            Secondname = sname;
+            Email = mail;
+            Unvan = unvan;
+            Sinif = snf;
+            Id = id;
         }
     }
 }

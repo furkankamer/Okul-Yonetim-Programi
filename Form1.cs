@@ -18,7 +18,6 @@ namespace WindowsFormsApp1
     {
         
         DateTime myDate;
-        bool kayitt = false;
         Color renk;
         int ccol=0;
         int crow=0;
@@ -56,7 +55,8 @@ namespace WindowsFormsApp1
                 com.DropDownStyle = ComboBoxStyle.DropDownList;
             kullanici_tipi.Items.Add("Ogrenci");
             kullanici_tipi.Items.Add("Ogretmen");
-            kullanici_tipi.SelectedIndex = 1;
+            label4.Hide();
+            textBox4.Hide();
         }
         
         private bool blnButtonDown = false;
@@ -126,7 +126,6 @@ namespace WindowsFormsApp1
             giriss_paneli.Visible = true;
             Kayit_Paneli.Visible = false;
             email_paneli.Visible = false;
-            kayitt = false;
         }
 
         private void Kayit_Click(object sender, EventArgs e)
@@ -135,52 +134,28 @@ namespace WindowsFormsApp1
             Kayit_Paneli.Visible = true;
             giriss_paneli.Visible = true;
             email_paneli.Visible = false;
-            kayitt = true;
+            tamam.Hide();
         }
 
         private void Tamam_Click(object sender, EventArgs e)
         {
-            if (kayitt == true)
-            {
-                if((kullanici_tipi.Text == "Ogretmen" && textBox4.Text == "385") || kullanici_tipi.Text == "Ogrenci")
-                {
-                    string yenikayit = $@"INSERT INTO Kisiler (kullaniciadi,sifre,isim,soyisim,mail,unvan)
-                                        values('{textBox1.Text}','{textBox2.Text}','{textBox6.Text}',
-                                        '{textBox5.Text}','{textBox3.Text}','{kullanici_tipi.Text}')";
-                    string success = Helpers.Sqlexecuter(yenikayit, 0);
-                    if (success == "")
-                    {
-                        MessageBox.Show("Kayit Basarili Giris Yapabilirsiniz!");
-                        kayitt = false;
-                        textBox1.Clear();
-                        textBox2.Clear();
-                        Kayit_Paneli.Hide();
-                    }
-                    else MessageBox.Show("Kullanici adi alinmis. Lutfen tekrar deneyiniz");
-                }
-                
-            }
-            else 
-            {
-                string checker = $@"select sifre from Kisiler where kullaniciadi = '{textBox1.Text}'";
-                string sifre = Helpers.Sqlexecuter(checker, 1);
-                if (sifre == textBox2.Text)
-                {
-                    MessageBox.Show("Giriş Başarılı!");
-                    string personget = $@"select * from Kisiler where kullaniciadi = '{textBox1.Text}'";
-                    Dictionary<string, List<string>> persondict = Helpers.Sqlreaderexecuter(personget);
-                    Person person = new Person(persondict, textBox1.Text);
-                    Settings.GeneralSettings = JsonConvert.SerializeObject(person);
-                    if (persondict["unvan"].Contains("Ogretmen")) ogretmen_loggin_paneli.Show();
-                    else ogrenci_loggin_paneli.Show();
-                    Panel[] pnl = { giriss_paneli , Giris_Paneli , Kayit_Paneli };
-                    foreach (Panel panel in pnl) panel.Hide();
-                    cikis_butonu.Show();
-                }
-                else if (sifre == "null") MessageBox.Show("böyle bir kullanici adi yok");
-                else MessageBox.Show("Şifre Yanlış Lütfen Tekrar Deneyiniz");
-            }
-
+           string checker = $@"select sifre from Kisiler where kullaniciadi = '{textBox1.Text}'";
+           string sifre = Helpers.Sqlexecuter(checker, 1);
+           if (sifre == textBox2.Text)
+           {
+               MessageBox.Show("Giriş Başarılı!");
+               string personget = $@"select * from Kisiler where kullaniciadi = '{textBox1.Text}'";
+               Dictionary<string, List<string>> persondict = Helpers.Sqlreaderexecuter(personget);
+               Person person = new Person(persondict, textBox1.Text);
+               Settings.GeneralSettings = JsonConvert.SerializeObject(person);
+               if (persondict["unvan"].Contains("Ogretmen")) ogretmen_loggin_paneli.Show();
+               else ogrenci_loggin_paneli.Show();
+               Panel[] pnl = { giriss_paneli , Giris_Paneli , Kayit_Paneli };
+               foreach (Panel panel in pnl) panel.Hide();
+               cikis_butonu.Show();
+           }
+           else if (sifre == "null") MessageBox.Show("böyle bir kullanici adi yok");
+           else MessageBox.Show("Şifre Yanlış Lütfen Tekrar Deneyiniz");
         }
         private void Button6_Click(object sender, EventArgs e)
         {
@@ -210,8 +185,8 @@ namespace WindowsFormsApp1
             radioButton2.Checked = false;
             Player.Play();
             comboBox2.Enabled = false;
-            Ders_Olusturma_Paneli.Visible = true;
-            excel_paneli.Visible = false;
+            Ders_Olusturma_Paneli.Show();
+            excel_paneli.Hide();
             Helpers.Datagridviewformatter(dataGridView1, null, null, false);
             comboBox2.Enabled = true;
             comboBox2.Items.Clear();
@@ -257,8 +232,8 @@ namespace WindowsFormsApp1
                 combo.SelectedIndex = -1;
             }
             Giris_Paneli.Show();
-            Control[] cont = { cikis_butonu,dataGridView1,ogrenci_loggin_paneli , ogretmen_loggin_paneli , Ders_Olusturma_Paneli, Ders_Secim_Paneli, excel_paneli,
-            giriss_paneli,Kayit_Paneli,email_paneli};
+            Control[] cont = { cikis_butonu,dataGridView1,ogrenci_loggin_paneli , ogretmen_loggin_paneli , Ders_Olusturma_Paneli,
+                Ders_Secim_Paneli, excel_paneli,giriss_paneli,Kayit_Paneli,email_paneli};
             foreach (Control control in cont)
                 control.Hide();
         }
@@ -277,7 +252,7 @@ namespace WindowsFormsApp1
             Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
             string dersler = $@"select Dersler.DersGünü,Dersler.DersAdi, Dersler.hoca_id[hocaid], cast(Dersler.date2 as time(0))[time]
                                 from Dersler inner join DersKayit on DersKayit.ders_id = Dersler.Ders_ID
-                                where derskayit.student_id = '{person.İd}' ";
+                                where derskayit.student_id = '{person.Id}' ";
             Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(dersler);
             int timec = mydict["time"].Count;
             for (int i = 0; i < timec; i++)
@@ -419,7 +394,7 @@ namespace WindowsFormsApp1
                 if(ders_id == "null") return;
                 string checkcollision = $@"select Dersler.DersGünü, cast(date2 as time(0))[time] from
                                            Dersler inner join Derskayit on Derskayit.ders_id = Dersler.Ders_ID
-                                           where derskayit.student_id = '{person.İd}'";
+                                           where derskayit.student_id = '{person.Id}'";
                 Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(checkcollision);
                 int countt = mydict["DersGünü"].Count;
                 for (int i=0;i<countt;i++)
@@ -432,7 +407,7 @@ namespace WindowsFormsApp1
                     }
                 }
 
-                string insertders = $@"insert into derskayit(student_id,ders_id) values('{person.İd}','{ders_id}')";
+                string insertders = $@"insert into derskayit(student_id,ders_id) values('{person.Id}','{ders_id}')";
                 string updateenroll = $@"update Dersler set enrolled = '1' where Ders_ID = '{ders_id}'";
                 if (Helpers.Sqlexecuter(insertders, 0) != "null")
                     Helpers.Sqlexecuter(updateenroll, 0);
@@ -462,7 +437,7 @@ namespace WindowsFormsApp1
                             string dersgunu = dataGridView1.Columns[colind].HeaderText;
                             string derssaati = dataGridView1.Rows[rowind].HeaderCell.Value.ToString();
                             Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
-                            string unenroll = $@"delete from DersKayit where student_id = {person.İd} and
+                            string unenroll = $@"delete from DersKayit where student_id = {person.Id} and
                                                  ders_id = (select Ders_ID from Dersler where 
                                                   hoca_id = (select Hoca_id from Hocalar where isim = '{dershocasi}') and DersAdi = '{dersadi}'
                                                   and cast(date2 as time(0)) = '{derssaati}'
@@ -623,7 +598,7 @@ namespace WindowsFormsApp1
                 {
                     string hocaisim = $"select isim from Hocalar where hoca_id = '{hocadata}'";
                     hocaisim = Helpers.Sqlexecuter(hocaisim, 1);
-                    comboBox9.Items.Insert(0, hocaisim);
+                    comboBox9.Items.Add(hocaisim);
                 }
                 textBox8.Hide();
             }
@@ -648,6 +623,7 @@ namespace WindowsFormsApp1
             {
                 textBox4.Show();
                 label4.Show();
+                MessageBox.Show("Öğretmen olarak kayıt olabilmek için lütfen onay kodunu giriniz");
             }
             else
             {
@@ -655,6 +631,25 @@ namespace WindowsFormsApp1
                 label4.Hide();
             }
                 
+        }
+
+        private void Kayit_tamamla_Click(object sender, EventArgs e)
+        {
+            if ((kullanici_tipi.Text == "Ogretmen" && textBox4.Text == "385") || kullanici_tipi.Text == "Ogrenci")
+            {
+                string yenikayit = $@"INSERT INTO Kisiler (kullaniciadi,sifre,isim,soyisim,mail,unvan)
+                                        values('{textBox1.Text}','{textBox2.Text}','{textBox6.Text}',
+                                        '{textBox5.Text}','{textBox3.Text}','{kullanici_tipi.Text}')";
+                string success = Helpers.Sqlexecuter(yenikayit, 0);
+                if (success == "")
+                {
+                    MessageBox.Show("Kayit Basarili Giris Yapabilirsiniz!");
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    Kayit_Paneli.Hide();
+                }
+                else MessageBox.Show("Kullanici adi alinmis. Lutfen tekrar deneyiniz");
+            }
         }
     }
 }
