@@ -433,7 +433,7 @@
             this.cikis_butonu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cikis_butonu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cikis_butonu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cikis_butonu.Location = new System.Drawing.Point(707, 8);
+            this.cikis_butonu.Location = new System.Drawing.Point(758, 8);
             this.cikis_butonu.Name = "cikis_butonu";
             this.cikis_butonu.Size = new System.Drawing.Size(75, 29);
             this.cikis_butonu.TabIndex = 34;
@@ -823,9 +823,9 @@
             this.Ders_Secim_Paneli.Controls.Add(this.label14);
             this.Ders_Secim_Paneli.Controls.Add(this.comboBox4);
             this.Ders_Secim_Paneli.Controls.Add(this.button14);
-            this.Ders_Secim_Paneli.Location = new System.Drawing.Point(283, 179);
+            this.Ders_Secim_Paneli.Location = new System.Drawing.Point(295, 170);
             this.Ders_Secim_Paneli.Name = "Ders_Secim_Paneli";
-            this.Ders_Secim_Paneli.Size = new System.Drawing.Size(274, 157);
+            this.Ders_Secim_Paneli.Size = new System.Drawing.Size(277, 164);
             this.Ders_Secim_Paneli.TabIndex = 67;
             this.Ders_Secim_Paneli.Visible = false;
             // 
@@ -905,7 +905,7 @@
             this.Ders_Olusturma_Paneli.Controls.Add(this.label10);
             this.Ders_Olusturma_Paneli.Controls.Add(this.button1);
             this.Ders_Olusturma_Paneli.Controls.Add(this.dateTimePicker1);
-            this.Ders_Olusturma_Paneli.Location = new System.Drawing.Point(513, 91);
+            this.Ders_Olusturma_Paneli.Location = new System.Drawing.Point(551, 93);
             this.Ders_Olusturma_Paneli.Name = "Ders_Olusturma_Paneli";
             this.Ders_Olusturma_Paneli.Size = new System.Drawing.Size(292, 202);
             this.Ders_Olusturma_Paneli.TabIndex = 68;
@@ -915,7 +915,7 @@
             // 
             this.ogrenci_loggin_paneli.Controls.Add(this.button15);
             this.ogrenci_loggin_paneli.Controls.Add(this.button16);
-            this.ogrenci_loggin_paneli.Location = new System.Drawing.Point(408, 43);
+            this.ogrenci_loggin_paneli.Location = new System.Drawing.Point(459, 43);
             this.ogrenci_loggin_paneli.Name = "ogrenci_loggin_paneli";
             this.ogrenci_loggin_paneli.Size = new System.Drawing.Size(302, 39);
             this.ogrenci_loggin_paneli.TabIndex = 68;
@@ -925,7 +925,7 @@
             // 
             this.ogretmen_loggin_paneli.Controls.Add(this.button6);
             this.ogretmen_loggin_paneli.Controls.Add(this.button7);
-            this.ogretmen_loggin_paneli.Location = new System.Drawing.Point(408, 4);
+            this.ogretmen_loggin_paneli.Location = new System.Drawing.Point(459, 4);
             this.ogretmen_loggin_paneli.Name = "ogretmen_loggin_paneli";
             this.ogretmen_loggin_paneli.Size = new System.Drawing.Size(293, 33);
             this.ogretmen_loggin_paneli.TabIndex = 69;
@@ -936,7 +936,7 @@
             this.excel_paneli.Controls.Add(this.comboBox6);
             this.excel_paneli.Controls.Add(this.label12);
             this.excel_paneli.Controls.Add(this.button3);
-            this.excel_paneli.Location = new System.Drawing.Point(246, 99);
+            this.excel_paneli.Location = new System.Drawing.Point(295, 96);
             this.excel_paneli.Name = "excel_paneli";
             this.excel_paneli.Size = new System.Drawing.Size(396, 71);
             this.excel_paneli.TabIndex = 70;
@@ -962,7 +962,7 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 543);
+            this.ClientSize = new System.Drawing.Size(845, 543);
             this.Controls.Add(this.Ders_Olusturma_Paneli);
             this.Controls.Add(this.giriss_paneli);
             this.Controls.Add(this.ogrenci_loggin_paneli);
