@@ -15,23 +15,33 @@ namespace WindowsFormsApp1
 {
     class Helpers
     {
-        static public int[] Datagridcellreturner(DataGridView datag,string gun,string saat)
+        static public DataGridViewCell Datagridcellreturner(DataGridView datag,string gun,string saat)
         {
-            int[] indices = new int[2];
-            for(int i=0;i<datag.Rows.Count;i++)
-            {
-                for (int j = 0; j < datag.Columns.Count; j++)
-                {
-                    string tablo_saat = datag.Rows[i].HeaderCell.Value.ToString();
-                    string tablo_gun = datag.Columns[j].HeaderText;
-                    Color cellcolor = datag.Rows[i].Cells[j].Style.BackColor;
-                    if (tablo_saat == saat && tablo_gun == gun) { indices[0] = i; indices[1] = j; }
-                    else if(cellcolor != Color.Blue && cellcolor != Color.Green) datag.Rows[i].Cells[j].Style.BackColor = Color.DarkGray;
-                }
+            int rowindex = FindRow(datag, saat);
+            int colindex = FindCol(datag, gun);
+            DataGridViewCell cell = datag.Rows[rowindex].Cells[colindex];
+            Color cellcolor = cell.Style.BackColor;
+            if (cellcolor != Color.Blue && cellcolor != Color.Green)
+                cell.Style.BackColor = Color.DarkGray;
+            cell.ReadOnly = false;
+            return cell;
 
-            }
-            return indices;
-
+        }
+        static public int FindRow(DataGridView dview,string value)
+        {
+            int rowindex = -1;
+            for (int i = 0; i < dview.Rows.Count; i++)
+                if (dview.Rows[i].HeaderCell.Value.ToString() == value)
+                    rowindex = i;
+            return rowindex;
+        }
+        static public int FindCol(DataGridView dview, string value)
+        {
+            int colindex = -1;
+            for (int i = 0; i < dview.Columns.Count; i++)
+                if (dview.Columns[i].HeaderText == value)
+                    colindex = i;
+            return colindex;
         }
         static public string Sqlexecuter(string command, int type)
         {
@@ -121,6 +131,8 @@ namespace WindowsFormsApp1
                 datag.Rows.Clear();
                 datag.Columns.Clear();
                 datag.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
+                datag.DefaultCellStyle.BackColor = Color.DarkGray;
+                datag.ReadOnly = true;
                 foreach (string header in columns)
                 {
                     DataGridViewColumn d = new DataGridViewTextBoxColumn

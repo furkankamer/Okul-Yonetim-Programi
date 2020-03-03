@@ -19,12 +19,10 @@ namespace WindowsFormsApp1
     {
         
         DateTime myDate;
-        Color renk;
-        int ccol=0;
-        int crow=0;
+        int ccol = 0;
+        int crow = 0;
         bool tablekayit = false;
         bool tablealinan = false;
-        bool tableacilan = false;
         int clicked = 0;
         readonly System.Media.SoundPlayer player = new System.Media.SoundPlayer(Properties.Resources.dad2);
         public Form1()
@@ -55,12 +53,13 @@ namespace WindowsFormsApp1
         }
         
         private bool blnButtonDown = false;
-        public bool Tableacilan { get => tableacilan; set => tableacilan = value; }
+        public bool Tableacilan { get; set; } = false;
         public SoundPlayer Player => player;
-        public Color Renk { get => renk; set => renk = value; }
-        
+        public Color Renk { get; set; }
+
         private void Button1_Click(object sender, EventArgs e)
         {
+            
             if (dateTimePicker1.Value.Date > DateTime.Now && comboBox1.Text != "" && comboBox8.Text != "" && comboBox2.Text != "" && (comboBox9.Text != "" || textBox8.Text != ""))
             {
                 string name;
@@ -252,11 +251,11 @@ namespace WindowsFormsApp1
             int timec = mydict["time"].Count;
             for (int i = 0; i < timec; i++)
             {
-                int[] indexler = Helpers.Datagridcellreturner(dataGridView1, mydict["DersGünü"][i], mydict["time"][i]);
+                DataGridViewCell cell = Helpers.Datagridcellreturner(dataGridView1, mydict["DersGünü"][i], mydict["time"][i]);
                 string hocaname = $"select isim from Hocalar where Hoca_id = '{mydict["hocaid"][i]}'";
                 hocaname = Helpers.Sqlexecuter(hocaname, 1);
-                dataGridView1.Rows[indexler[0]].Cells[indexler[1]].Value = mydict["DersAdi"][i] + "\n" + hocaname;
-                dataGridView1.Rows[indexler[0]].Cells[indexler[1]].Style.BackColor = Color.Blue;
+                cell.Value = mydict["DersAdi"][i] + "\n" + hocaname;
+                cell.Style.BackColor = Color.Blue;
             }
             MessageBox.Show("Bırakmak İstediğiniz Dersin Üzerine Çift Tıklayınız");
         }
@@ -291,16 +290,17 @@ namespace WindowsFormsApp1
                 Dictionary<string,List<string>> mydict = Helpers.Sqlreaderexecuter(str1);
                 for (int j = 0; j < dataGridView1.Columns.Count; j++)
                 {
-                    
-                    if (mydict["date"].Contains(dataGridView1.Columns[j].HeaderText))
+                    string header = dataGridView1.Columns[j].HeaderText;
+                    DataGridViewCell cell = dataGridView1.Rows[0].Cells[j];
+                    if (mydict["date"].Contains(header))
                     {
-                            dataGridView1.Rows[0].Cells[j].Value = "Seç";
-                            dataGridView1.Rows[0].Cells[j].Style.BackColor = Color.Green;
+                            cell.Value = "Seç";
+                            cell.Style.BackColor = Color.Green;
                     }
                     else
                     {
-                            dataGridView1.Rows[0].Cells[j].Value = "Dolu";
-                            dataGridView1.Rows[0].Cells[j].Style.BackColor = Color.Red;
+                            cell.Value = "Dolu";
+                            cell.Style.BackColor = Color.Red;
                     }
                 }
             }
@@ -459,7 +459,7 @@ namespace WindowsFormsApp1
         {
             int rowc = dataGridView1.Rows.Count;
             int colc = dataGridView1.Columns.Count;
-            if (e.RowIndex < rowc && e.ColumnIndex < colc && e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.DarkGray)
+            if (e.RowIndex < rowc && e.ColumnIndex < colc && e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.Empty)
             {
                 if(e.RowIndex != crow || e.ColumnIndex != ccol)
                 {
@@ -475,7 +475,7 @@ namespace WindowsFormsApp1
         {
             int rowc = dataGridView1.Rows.Count;
             int colc = dataGridView1.Columns.Count;
-            if (e.RowIndex < rowc && e.ColumnIndex < colc && e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.DarkGray)
+            if (e.RowIndex < rowc && e.ColumnIndex < colc && e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.Empty)
             {
                 if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Dolu")
                     dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
@@ -531,9 +531,9 @@ namespace WindowsFormsApp1
                 int timec = mydict["time"].Count;
                 for(int i=0;i<timec;i++)
                 {
-                    int[] indexler = Helpers.Datagridcellreturner(dataGridView1, mydict["DersGünü"][i], mydict["time"][i]);
-                    dataGridView1.Rows[indexler[0]].Cells[indexler[1]].Value = "Kayitli Ogrenci: " + mydict["Enrolled"][i];
-                    dataGridView1.Rows[indexler[0]].Cells[indexler[1]].Style.BackColor = Color.Green;
+                    DataGridViewCell cell = Helpers.Datagridcellreturner(dataGridView1, mydict["DersGünü"][i], mydict["time"][i]);
+                    cell.Value = "Kayitli Ogrenci: " + mydict["Enrolled"][i];
+                    cell.Style.BackColor = Color.Green;
                 }
             }
         }
