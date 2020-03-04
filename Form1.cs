@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Media;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -19,24 +20,16 @@ namespace WindowsFormsApp1
             Helpers.DateTimePickerFormatter(dateTimePicker1);
             textBox2.PasswordChar = '*';
             textBox2.MaxLength = 10;
-            int[] sinif = { 12, 11, 10, 9 };
-            foreach(int i in sinif)
-            {
-                comboBox7.Items.Insert(0, i);
-                comboBox8.Items.Insert(0, i);
-            }
+            string[] sinif = { "12", "11", "10", "9"};
+            comboBox7.Items.AddRange(sinif);
+            comboBox8.Items.AddRange(sinif);
             string[] dersler = { "Ingilizce", "Biyoloji", "Kimya", "Fizik", "Matematik", "Turkce", "Edebiyat" };
-            foreach(string ders in dersler)
-            {
-                comboBox1.Items.Add(ders);
-                comboBox5.Items.Add(ders);
-            }
+            comboBox1.Items.AddRange(dersler);
+            comboBox5.Items.AddRange(dersler);
             ComboBox[] cmb = { kullanici_tipi,comboBox1, comboBox3 , comboBox4, comboBox5, comboBox2, comboBox8 };
-            foreach(ComboBox com in cmb)
-                com.DropDownStyle = ComboBoxStyle.DropDownList;
+            Helpers.combobox_dropdown(cmb);
             kullanici_tipi.Items.Add("Ogrenci");
             kullanici_tipi.Items.Add("Ogretmen");
-            
         }
         
         private bool blnButtonDown = false;
@@ -71,15 +64,12 @@ namespace WindowsFormsApp1
             comboBox2.Enabled = true;
             comboBox2.Items.Clear();
             string gun = Helpers.Hangi_Gun(dateTimePicker1);
-            string[,] hours = { { "14:30:00", "14:00:00", "13:00:00", "13:00:00" },{"17:30:00","17:00:00","11:10:00","10:50:00" } };
-            if(gun == "Cumartesi")
-                for (int i=0;i<4;i++) {
-                    comboBox2.Items.Insert(0, hours[0,i]);
-                }
+            string[] hourscmt = { "14:30:00", "14:00:00", "13:00:00", "13:00:00" };
+            string[] hours_weekday = {"17:30:00","17:00:00","11:10:00","10:50:00" };
+            if (gun == "Cumartesi")
+                comboBox2.Items.AddRange(hourscmt);
             else
-                for (int i = 0; i < 4; i++) {
-                    comboBox2.Items.Insert(0, hours[1, i]);
-                }
+                comboBox2.Items.AddRange(hours_weekday);
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,12 +81,10 @@ namespace WindowsFormsApp1
             inner join Dersler on Dersler.hoca_id = Hocalar.hoca_id
             where Dersler.DersAdi = '{comboBox1.Text}'";
             Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(hocalar);
-            foreach(string hoca in mydict["Hocalar"])
-            {
-                if(!comboBox9.Items.Contains(hoca))
-                   comboBox9.Items.Insert(0, hoca);
-                   a.Add(hoca);
-            }
+            string[] hocas = mydict["hocalar"].ToArray();
+            mydict["hocalar"] = mydict["hocalar"].Distinct().ToList();
+            comboBox9.Items.AddRange(hocas);
+            a.AddRange(hocas);
             AutoCompleteStringCollection allowedTypes = new AutoCompleteStringCollection();
             allowedTypes.AddRange(a.ToArray());
             textBox8.AutoCompleteCustomSource = allowedTypes;
@@ -110,18 +98,18 @@ namespace WindowsFormsApp1
         {
             Player.Play();
             giriss_paneli.Show();
-            Kayit_Paneli.Hide();
-            email_paneli.Hide();
+            Control[] controls = { Kayit_Paneli , email_paneli };
+            Helpers.control_hide(controls);
             tamam.Show();
         }
 
         private void Kayit_Click(object sender, EventArgs e)
         {
             Player.Play();
-            Kayit_Paneli.Visible = true;
-            giriss_paneli.Visible = true;
-            email_paneli.Visible = false;
-            tamam.Hide();
+            Control[] tohide = { email_paneli, tamam };
+            Control[] toshow = { Kayit_Paneli, giriss_paneli };
+            Helpers.control_hide(tohide);
+            Helpers.control_show(toshow);
         }
 
         private void Tamam_Click(object sender, EventArgs e)
@@ -140,8 +128,7 @@ namespace WindowsFormsApp1
                else
                     ogrenci_loggin_paneli.Show();
                Panel[] pnl = { giriss_paneli , Giris_Paneli , Kayit_Paneli };
-               foreach (Panel panel in pnl)
-                    panel.Hide();
+               Helpers.control_hide(pnl);
                cikis_butonu.Show();
            }
            else if (sifre == "null")
@@ -152,7 +139,7 @@ namespace WindowsFormsApp1
         private void Button6_Click(object sender, EventArgs e)
         {
             comboBox6.SelectedIndex = -1;
-            Helpers.Datagridviewformatter(dataGridView1, null, null, false);
+            Helpers.Datagridviewformatter(dersprogrami, null, null, Color.DarkGray,false);
             Player.Play();
             excel_paneli.Visible = true;
             Ders_Olusturma_Paneli.Visible = false;
@@ -174,7 +161,7 @@ namespace WindowsFormsApp1
             comboBox2.Enabled = false;
             Ders_Olusturma_Paneli.Show();
             excel_paneli.Hide();
-            Helpers.Datagridviewformatter(dataGridView1, null, null, false);
+            Helpers.Datagridviewformatter(dersprogrami, null, null, Color.DarkGray,false);
             comboBox2.Enabled = true;
             comboBox2.Items.Clear();
             string gun = Helpers.Hangi_Gun(dateTimePicker1);
@@ -191,9 +178,8 @@ namespace WindowsFormsApp1
         {
             Player.Play();
             MessageBox.Show("Lütfen belirtilen alana kayıt olduğunuz mail adresinizi giriniz");
-            giriss_paneli.Hide();
-            Kayit_Paneli.Hide();
-            email_paneli.Show();
+            Helpers.control_hide(new Control[] { giriss_paneli, Kayit_Paneli });
+            Helpers.control_show(new Control[] { email_paneli });
         }
         private void Button9_Click(object sender, EventArgs e)
         {
@@ -213,19 +199,13 @@ namespace WindowsFormsApp1
         }
         private void Button10_Click(object sender, EventArgs e)
         {
-            Settings.GeneralSettings = string.Empty;
-            Player.Play();
-            ComboBox[] cmb = { comboBox2, comboBox3, comboBox4, comboBox9, comboBox6 };
-            foreach(ComboBox combo in cmb)
-            {
-                combo.Items.Clear();
-                combo.SelectedIndex = -1;
-            }
+
             Giris_Paneli.Show();
-            Control[] cont = { cikis_butonu,dataGridView1,ogrenci_loggin_paneli , ogretmen_loggin_paneli , Ders_Olusturma_Paneli,
-                Ders_Secim_Paneli, excel_paneli,giriss_paneli,Kayit_Paneli,email_paneli};
-            foreach (Control control in cont)
-                control.Hide();
+            Player.Play();
+            Settings.GeneralSettings = string.Empty;
+            Helpers.combobox_clear(new ComboBox[] { comboBox2, comboBox3, comboBox4, comboBox9, comboBox6 });
+            Helpers.control_hide(new Control[]{ cikis_butonu,dersprogrami,ogrenci_loggin_paneli , ogretmen_loggin_paneli , Ders_Olusturma_Paneli,
+                Ders_Secim_Paneli, excel_paneli,giriss_paneli,Kayit_Paneli,email_paneli});
         }
         private void Button15_Click(object sender, EventArgs e)
         {
@@ -234,7 +214,7 @@ namespace WindowsFormsApp1
             Ders_Secim_Paneli.Hide();
             string[] headerscol = { "Pazartesi", "Sali", "Çarşamba", "Persembe", "Cuma", "Cumartesi" };
             string[] hoursrow = { "10:50:00", "11:10:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "17:00:00", "17:30:00" };
-            Helpers.Datagridviewformatter(dataGridView1, headerscol, hoursrow);
+            Helpers.Datagridviewformatter(dersprogrami, headerscol, hoursrow,Color.DarkGray);
             Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
             string dersler = $@"select Dersler.DersGünü,Dersler.DersAdi, Dersler.hoca_id[hocaid], 
                                 cast(Dersler.date2 as time(0))[time] from Dersler inner join DersKayit 
@@ -243,7 +223,7 @@ namespace WindowsFormsApp1
             int timec = mydict["time"].Count;
             for (int i = 0; i < timec; i++)
             {
-                DataGridViewCell cell = Helpers.Datagridcellreturner(dataGridView1, mydict["DersGünü"][i], mydict["time"][i]);
+                DataGridViewCell cell = Helpers.Datagridcellreturner(dersprogrami, mydict["DersGünü"][i], mydict["time"][i]);
                 string hocaname = $"select isim from Hocalar where Hoca_id = '{mydict["hocaid"][i]}'";
                 hocaname = Helpers.Sqlexecuter(hocaname, 1);
                 cell.Value = mydict["DersAdi"][i] + "\n" + hocaname;
@@ -254,7 +234,7 @@ namespace WindowsFormsApp1
         private void Button16_Click(object sender, EventArgs e)
         {
             Player.Play();
-            dataGridView1.Hide();
+            dersprogrami.Hide();
             Ders_Secim_Paneli.Show();
             comboBox5.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
@@ -269,15 +249,15 @@ namespace WindowsFormsApp1
             {
                 string[] headerscol = { comboBox4.Text };
                 string[] hoursrow = { "10:50:00", "11:10:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00", "17:00:00", "17:30:00" };
-                Helpers.Datagridviewformatter(dataGridView1,hoursrow,headerscol);
+                Helpers.Datagridviewformatter(dersprogrami,hoursrow,headerscol,Color.Red);
                 string str1 = $"select cast(date2 as time(0))[date] from Dersler where Quota != Enrolled " +
                         $"and Hoca_id = (select hoca_id from Hocalar where isim = '{comboBox3.Text}') " +
                         $"and DersGünü = '{comboBox4.Text}'";
                 Dictionary<string,List<string>> mydict = Helpers.Sqlreaderexecuter(str1);
-                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                for (int j = 0; j < dersprogrami.Columns.Count; j++)
                 {
-                    string header = dataGridView1.Columns[j].HeaderText;
-                    DataGridViewCell cell = dataGridView1.Rows[0].Cells[j];
+                    string header = dersprogrami.Columns[j].HeaderText;
+                    DataGridViewCell cell = dersprogrami.Rows[0].Cells[j];
                     if (mydict["date"].Contains(header))
                     {
                             cell.Value = "Seç";
@@ -297,8 +277,7 @@ namespace WindowsFormsApp1
         }
         private void ComboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox3.Items.Clear();
-            comboBox4.Items.Clear();
+            Helpers.combobox_clear(new ComboBox[] {comboBox3,comboBox4 });
             string str = $@"select Hocalar.isim [Hocalar] from Hocalar
                         inner join Dersler on Dersler.hoca_id = Hocalar.hoca_id
                         where Dersler.DersAdi = '{comboBox5.Text}' and Dersler.Enrolled != Dersler.Quota";
@@ -310,14 +289,13 @@ namespace WindowsFormsApp1
             }
            if(comboBox3.Items.Count == 0)
             {
-                comboBox3.Enabled = false;
-                comboBox4.ResetText();
+                Helpers.combobox_clear(new ComboBox[] { comboBox3, comboBox4 });
+                Helpers.control_disable(new Control[] { comboBox3, comboBox4 });
                 MessageBox.Show("Sectiginiz Branşta Açık Ders Bulunmamakta Lütfen Farklı Bir Branş Seçiniz!");
-                comboBox4.Enabled = false;
             }
             else
             {
-                comboBox3.Enabled = true;
+                Helpers.control_enable(new Control[] { comboBox3 });
             }
         }
 
@@ -346,13 +324,13 @@ namespace WindowsFormsApp1
         }
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView1.Enabled = false;
-            int rowind = dataGridView1.CurrentCell.RowIndex;
-            int colind = dataGridView1.CurrentCell.ColumnIndex;
-            if (dataGridView1.CurrentCell.Style.BackColor == Color.Green)
+            dersprogrami.Enabled = false;
+            int rowind = dersprogrami.CurrentCell.RowIndex;
+            int colind = dersprogrami.CurrentCell.ColumnIndex;
+            if (dersprogrami.CurrentCell.Style.BackColor == Color.Green)
             {
-                string dersgünü = dataGridView1.Rows[rowind].HeaderCell.Value.ToString();
-                string derssaati = dataGridView1.Columns[colind].HeaderText;
+                string dersgünü = dersprogrami.Rows[rowind].HeaderCell.Value.ToString();
+                string derssaati = dersprogrami.Columns[colind].HeaderText;
                 Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
                 string hocaid = $"select Hoca_id from Hocalar where isim = '{comboBox3.Text}'";
                 hocaid = Helpers.Sqlexecuter(hocaid, 1);
@@ -372,7 +350,7 @@ namespace WindowsFormsApp1
                     if(mydict["DersGünü"][i] == dersgünü && mydict["time"][i] == derssaati)
                     {
                         MessageBox.Show("Ders Saatleriniz Çakışıyor");
-                        dataGridView1.Enabled = true;
+                        dersprogrami.Enabled = true;
                         return;
                     }
                 }
@@ -383,26 +361,26 @@ namespace WindowsFormsApp1
                 else
                     MessageBox.Show("Basarisiz!");
             }
-            dataGridView1.Enabled = true;
+            dersprogrami.Enabled = true;
         }
 
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView1.Enabled = false;
+            dersprogrami.Enabled = false;
             Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
             if (person.Unvan == "Ogrenci")
             { 
-                int rowind = dataGridView1.CurrentCell.RowIndex;
-                int colind = dataGridView1.CurrentCell.ColumnIndex;
+                int rowind = dersprogrami.CurrentCell.RowIndex;
+                int colind = dersprogrami.CurrentCell.ColumnIndex;
                 DialogResult dr = MessageBox.Show("Dersi İptal Et","Ders İptali", MessageBoxButtons.YesNo);
                 if(dr == DialogResult.Yes)
                 {
-                     string cellval = dataGridView1.Rows[rowind].Cells[colind].Value.ToString();
+                     string cellval = dersprogrami.Rows[rowind].Cells[colind].Value.ToString();
                      string dersadi = cellval.Split('\n')[0];
                      string dershocasi = cellval.Split('\n')[1];
-                     string dersgunu = dataGridView1.Columns[colind].HeaderText;
-                     string derssaati = dataGridView1.Rows[rowind].HeaderCell.Value.ToString();
+                     string dersgunu = dersprogrami.Columns[colind].HeaderText;
+                     string derssaati = dersprogrami.Rows[rowind].HeaderCell.Value.ToString();
                      string unenroll = $@"delete from DersKayit where student_id = {person.Id} and
                                                   ders_id = (select Ders_ID from Dersler where 
                                                   hoca_id = (select Hoca_id from Hocalar where 
@@ -412,45 +390,45 @@ namespace WindowsFormsApp1
                      if (Helpers.Sqlexecuter(unenroll, 0) == "null")
                      {
                         MessageBox.Show("Basarisiz!");
-                        dataGridView1.Enabled = true;
+                        dersprogrami.Enabled = true;
                          return;
                      }
-                     dataGridView1.Rows[rowind].Cells[colind].ReadOnly = true;
-                     dataGridView1.Rows[rowind].Cells[colind].Value = null;
-                     dataGridView1.ClearSelection();
+                     dersprogrami.Rows[rowind].Cells[colind].ReadOnly = true;
+                     dersprogrami.Rows[rowind].Cells[colind].Value = null;
+                     dersprogrami.ClearSelection();
                 }
             }
-            dataGridView1.Enabled = true;
+            dersprogrami.Enabled = true;
         }
 
         private void DataGridView1_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int rowc = dataGridView1.Rows.Count;
-            int colc = dataGridView1.Columns.Count;
-            if (e.RowIndex < rowc && e.ColumnIndex < colc && e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.Empty)
+            int rowc = dersprogrami.Rows.Count;
+            int colc = dersprogrami.Columns.Count;
+            if (e.RowIndex < rowc && e.ColumnIndex < colc && e.RowIndex >= 0 && e.ColumnIndex >= 0 && dersprogrami.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.Empty)
             {
                 if(e.RowIndex != crow || e.ColumnIndex != ccol)
                 {
                     crow = e.RowIndex;
                     ccol = e.ColumnIndex;
-                    Renk = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor;
+                    Renk = dersprogrami.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor;
                 }
-                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.LightSkyBlue;
+                dersprogrami.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.LightSkyBlue;
             }
         }
 
         private void DataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            int rowc = dataGridView1.Rows.Count;
-            int colc = dataGridView1.Columns.Count;
-            if (e.RowIndex < rowc && e.ColumnIndex < colc && e.RowIndex >= 0 && e.ColumnIndex >= 0 && dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.Empty)
+            int rowc = dersprogrami.Rows.Count;
+            int colc = dersprogrami.Columns.Count;
+            if (e.RowIndex < rowc && e.ColumnIndex < colc && e.RowIndex >= 0 && e.ColumnIndex >= 0 && dersprogrami.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.Empty)
             {
-                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Dolu")
-                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                else if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Seç")
-                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                if (dersprogrami.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Dolu")
+                    dersprogrami.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                else if (dersprogrami.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "Seç")
+                    dersprogrami.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
                 else
-                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Renk;
+                    dersprogrami.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Renk;
             }
         }
 
@@ -492,14 +470,14 @@ namespace WindowsFormsApp1
                 button3.Enabled = true;
                 string[] headerscol = {"Pazartesi","Sali","Çarşamba","Persembe","Cuma","Cumartesi" };
                 string[] hoursrow = {"10:50:00","11:10:00","13:00:00","13:30:00","14:00:00","14:30:00","17:00:00","17:30:00" };
-                Helpers.Datagridviewformatter(dataGridView1, headerscol, hoursrow);
+                Helpers.Datagridviewformatter(dersprogrami, headerscol, hoursrow,Color.DarkGray);
                 string schedule = $"select cast(date2 as time(0))[time],DersGünü, Enrolled from Dersler where " +
                                   $"Hoca_id = (select hoca_id from Hocalar where isim = '{comboBox6.Text}')";
                 Dictionary<string, List<string>> mydict = Helpers.Sqlreaderexecuter(schedule);
                 int timec = mydict["time"].Count;
                 for(int i=0;i<timec;i++)
                 {
-                    DataGridViewCell cell = Helpers.Datagridcellreturner(dataGridView1, mydict["DersGünü"][i], mydict["time"][i]);
+                    DataGridViewCell cell = Helpers.Datagridcellreturner(dersprogrami, mydict["DersGünü"][i], mydict["time"][i]);
                     cell.Value = "Kayitli Ogrenci: " + mydict["Enrolled"][i];
                     cell.Style.BackColor = Color.Green;
                 }
@@ -512,10 +490,10 @@ namespace WindowsFormsApp1
         }
         private void CopyAlltoClipboard()
         {
-            dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridView1.MultiSelect = true;
-            dataGridView1.SelectAll();
-            DataObject dataObj = dataGridView1.GetClipboardContent();
+            dersprogrami.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            dersprogrami.MultiSelect = true;
+            dersprogrami.SelectAll();
+            DataObject dataObj = dersprogrami.GetClipboardContent();
             if (dataObj != null) Clipboard.SetDataObject(dataObj);
         }
         private void Button3_Click_1(object sender, EventArgs e)

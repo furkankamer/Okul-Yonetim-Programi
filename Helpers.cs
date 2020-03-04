@@ -120,7 +120,7 @@ namespace WindowsFormsApp1
             return gun;
         }
 
-        static public void Datagridviewformatter(DataGridView datag, string[] columns, string[] rows,bool mode=true)
+        static public void Datagridviewformatter(DataGridView datag, string[] columns, string[] rows, Color color,bool mode=true)
         {
             if(mode == true)
             {
@@ -128,7 +128,7 @@ namespace WindowsFormsApp1
                 datag.Rows.Clear();
                 datag.Columns.Clear();
                 datag.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
-                datag.DefaultCellStyle.BackColor = Color.DarkGray;
+                datag.DefaultCellStyle.BackColor = color;
                 datag.ReadOnly = true;
                 foreach (string header in columns)
                 {
@@ -138,7 +138,8 @@ namespace WindowsFormsApp1
                     };
                     datag.Columns.Add(d);
                 }
-                if (rows.Length > 1) datag.Rows.Add(rows.Length - 1);
+                if (rows.Length > 1)
+                    datag.Rows.Add(rows.Length - 1);
                 for (int i = 0; i < rows.Length; i++)
                     datag.Rows[i].HeaderCell.Value = rows[i];
                 for (int i = 0; i < datag.Columns.Count; i++)
@@ -185,6 +186,44 @@ namespace WindowsFormsApp1
             datet.Format = DateTimePickerFormat.Custom;
             datet.CustomFormat = "yyyy-MM-dddd";
             datet.Hide();
+        }
+        static public void control_hide(Control[] controls)
+        {
+            foreach (Control control in controls)
+                control.Hide();
+        }
+        static public void control_show(Control[] controls)
+        {
+            foreach (Control control in controls)
+                control.Show();
+        }
+        static public void control_enable(Control[] controls)
+        {
+            foreach (Control control in controls)
+                control.Enabled = true;
+        }
+        static public void control_disable(Control[] controls)
+        {
+            foreach (Control control in controls)
+                control.Enabled = false;
+        }
+        static public void combobox_dropdown(ComboBox[] comboboxes)
+        {
+            foreach (ComboBox combobox in comboboxes)
+                combobox.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+        static public void combobox_clear(ComboBox[] comboboxes)
+        {
+            foreach (ComboBox combobox in comboboxes)
+            {
+                combobox.Items.Clear();
+                combobox.SelectedIndex = -1;
+            }
+               
+        }
+        static public void combobox_insert_array(ComboBox combobox,string[] values)
+        {
+           combobox.Items.AddRange(values);
         }
     }
 }

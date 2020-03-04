@@ -57,7 +57,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dersprogrami = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -92,7 +92,7 @@
             this.ogretmen_loggin_paneli = new System.Windows.Forms.Panel();
             this.excel_paneli = new System.Windows.Forms.Panel();
             this.giriss_paneli = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dersprogrami)).BeginInit();
             this.Giris_Paneli.SuspendLayout();
             this.email_paneli.SuspendLayout();
             this.Ders_Secim_Paneli.SuspendLayout();
@@ -481,20 +481,20 @@
             this.label10.TabIndex = 37;
             this.label10.Text = "Ders Tarihi";
             // 
-            // dataGridView1
+            // dersprogrami
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.Brown;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 336);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(799, 209);
-            this.dataGridView1.TabIndex = 39;
-            this.dataGridView1.Visible = false;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
-            this.dataGridView1.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellMouseLeave);
-            this.dataGridView1.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView1_CellMouseMove);
+            this.dersprogrami.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dersprogrami.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dersprogrami.GridColor = System.Drawing.Color.Brown;
+            this.dersprogrami.Location = new System.Drawing.Point(0, 336);
+            this.dersprogrami.Name = "dersprogrami";
+            this.dersprogrami.Size = new System.Drawing.Size(799, 209);
+            this.dersprogrami.TabIndex = 39;
+            this.dersprogrami.Visible = false;
+            this.dersprogrami.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
+            this.dersprogrami.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
+            this.dersprogrami.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellMouseLeave);
+            this.dersprogrami.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView1_CellMouseMove);
             // 
             // label11
             // 
@@ -972,13 +972,13 @@
             this.Controls.Add(this.excel_paneli);
             this.Controls.Add(this.ogretmen_loggin_paneli);
             this.Controls.Add(this.cikis_butonu);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dersprogrami);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Etüt Seç";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dersprogrami)).EndInit();
             this.Giris_Paneli.ResumeLayout(false);
             this.email_paneli.ResumeLayout(false);
             this.email_paneli.PerformLayout();
@@ -1027,7 +1027,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dersprogrami;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label12;
