@@ -19,28 +19,25 @@ namespace WindowsFormsApp1
         {
             int rowindex = FindRow(datag, saat);
             int colindex = FindCol(datag, gun);
-            DataGridViewCell cell = datag.Rows[rowindex].Cells[colindex];
-            Color cellcolor = cell.Style.BackColor;
-            if (cellcolor != Color.Blue && cellcolor != Color.Green)
-                cell.Style.BackColor = Color.DarkGray;
-            cell.ReadOnly = false;
-            return cell;
-
+            using(DataGridViewCell cell = datag.Rows[rowindex].Cells[colindex])
+            {
+                Color cellcolor = cell.Style.BackColor;
+                if (cellcolor != Color.Blue && cellcolor != Color.Green)
+                    cell.Style.BackColor = Color.DarkGray;
+                cell.ReadOnly = false;
+                return cell;
+            }
         }
         static public int FindRow(DataGridView dview,string value)
         {
-            int rowindex = -1;
-            for (int i = 0; i < dview.Rows.Count; i++)
-                if (dview.Rows[i].HeaderCell.Value.ToString() == value)
-                    rowindex = i;
+            var rowlist = dview.Rows.Cast<DataGridViewRow>().ToList();
+            int rowindex = rowlist.FindIndex(c => c.HeaderCell.Value.ToString() == value);
             return rowindex;
         }
         static public int FindCol(DataGridView dview, string value)
         {
-            int colindex = -1;
-            for (int i = 0; i < dview.Columns.Count; i++)
-                if (dview.Columns[i].HeaderText == value)
-                    colindex = i;
+            var columnlist = dview.Columns.Cast<DataGridViewColumn>().ToList();
+            int colindex = columnlist.FindIndex(c => c.HeaderText == value);
             return colindex;
         }
         static public string Sqlexecuter(string command, int type)
@@ -159,25 +156,27 @@ namespace WindowsFormsApp1
                 datag.Columns.Clear();
             }
         }
-        static public void Email(string konu, string icerik, string maill)
+        static public bool Email(string konu, string icerik, string maill)
         {
-            SmtpClient sc = new SmtpClient
+            using (SmtpClient client = new SmtpClient())
             {
-                Port = 587,
-                Host = "smtp.live.com",
-                EnableSsl = true,
-                Timeout = 50000,
-                Credentials = new NetworkCredential("furkankamer@hotmail.com", "****kollama38****")
-            };
-            MailMessage mail = new MailMessage
-            {
-                From = new MailAddress("furkankamer@hotmail.com", "furkan")
-            };
-            mail.To.Add(maill);
-            mail.Subject = icerik;
-            mail.IsBodyHtml = true;
-            mail.Body = konu;
-            sc.Send(mail);
+                using (MailMessage mail = new MailMessage())
+                {
+                    mail.To.Add(maill);
+                    mail.Subject = icerik;
+                    mail.IsBodyHtml = true;
+                    mail.Body = konu;
+                    try
+                    {
+                        client.Send(mail);
+                        return true;
+                    }
+                    catch
+                    {   
+                        return false;
+                    }
+                }
+            }   
         }
         static public void DateTimePickerFormatter(DateTimePicker datet)
         {
