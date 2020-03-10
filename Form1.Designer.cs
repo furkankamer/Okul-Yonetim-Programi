@@ -29,63 +29,63 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Ders_Olustur_Butonu = new System.Windows.Forms.Button();
+            this.Tarih_Secici = new System.Windows.Forms.DateTimePicker();
+            this.Branslar_Menu = new System.Windows.Forms.ComboBox();
             this.giris = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.kullanici_adi = new System.Windows.Forms.TextBox();
+            this.sifre = new System.Windows.Forms.TextBox();
+            this.kullaniciadi_label = new System.Windows.Forms.Label();
+            this.sifre_label = new System.Windows.Forms.Label();
             this.kayit = new System.Windows.Forms.Button();
             this.tamam = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.email_Label = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Kod_Text = new System.Windows.Forms.TextBox();
+            this.Kod_Label = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.Isim_Text = new System.Windows.Forms.TextBox();
+            this.Isim_Label = new System.Windows.Forms.Label();
+            this.Soyisim_Label = new System.Windows.Forms.Label();
+            this.Ogretmen_Program = new System.Windows.Forms.Button();
+            this.Yeni_Ders = new System.Windows.Forms.Button();
+            this.sifremi_unuttum = new System.Windows.Forms.Button();
+            this.yeni_sifre_gonder = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cikis_butonu = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.Brans_Label = new System.Windows.Forms.Label();
+            this.Saat_Label = new System.Windows.Forms.Label();
+            this.DersTarihi_Label = new System.Windows.Forms.Label();
             this.dersprogrami = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.Hoca_Ismi_Label = new System.Windows.Forms.Label();
+            this.yeni_hoca_text = new System.Windows.Forms.TextBox();
+            this.HocaAdi_Label = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button14 = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.Brans_Hocalar_Menu = new System.Windows.Forms.ComboBox();
+            this.Ders_Ara = new System.Windows.Forms.Button();
+            this.Gunler_Menu = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.Ogrenci_Program = new System.Windows.Forms.Button();
+            this.Ders_Kayıt = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.Brans_Menu = new System.Windows.Forms.ComboBox();
+            this.Saat_Menu = new System.Windows.Forms.ComboBox();
+            this.Hocalar_Menu = new System.Windows.Forms.ComboBox();
+            this.Siniff_Label = new System.Windows.Forms.Label();
+            this.Siniff_Menu = new System.Windows.Forms.ComboBox();
+            this.Sinif_Label = new System.Windows.Forms.Label();
+            this.Sınıf_Menu = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.hoca_from_list = new System.Windows.Forms.ComboBox();
             this.listeden_sec = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.yeni_hoca_ekle = new System.Windows.Forms.RadioButton();
             this.Giris_Paneli = new System.Windows.Forms.Panel();
             this.email_paneli = new System.Windows.Forms.Panel();
             this.Ders_Secim_Paneli = new System.Windows.Forms.Panel();
             this.Kayit_Paneli = new System.Windows.Forms.Panel();
             this.kayit_tamamla = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
+            this.KullaniciTipi_Label = new System.Windows.Forms.Label();
             this.kullanici_tipi = new System.Windows.Forms.ComboBox();
             this.Ders_Olusturma_Paneli = new System.Windows.Forms.Panel();
             this.ogrenci_loggin_paneli = new System.Windows.Forms.Panel();
@@ -104,49 +104,49 @@
             this.giriss_paneli.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // Ders_Olustur_Butonu
             // 
-            this.button1.BackColor = System.Drawing.Color.Brown;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(205, 158);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 26);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Dersi Aç";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            this.button1.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
-            this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
-            this.button1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
+            this.Ders_Olustur_Butonu.BackColor = System.Drawing.Color.Brown;
+            this.Ders_Olustur_Butonu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ders_Olustur_Butonu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Ders_Olustur_Butonu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Ders_Olustur_Butonu.Location = new System.Drawing.Point(205, 158);
+            this.Ders_Olustur_Butonu.Name = "Ders_Olustur_Butonu";
+            this.Ders_Olustur_Butonu.Size = new System.Drawing.Size(75, 26);
+            this.Ders_Olustur_Butonu.TabIndex = 0;
+            this.Ders_Olustur_Butonu.Text = "Dersi Aç";
+            this.Ders_Olustur_Butonu.UseVisualStyleBackColor = false;
+            this.Ders_Olustur_Butonu.Click += new System.EventHandler(this.Button1_Click);
+            this.Ders_Olustur_Butonu.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
+            this.Ders_Olustur_Butonu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
+            this.Ders_Olustur_Butonu.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
-            // dateTimePicker1
+            // Tarih_Secici
             // 
-            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.Brown;
-            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dateTimePicker1.CustomFormat = "";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(94, 54);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(192, 20);
-            this.dateTimePicker1.TabIndex = 1;
-            this.dateTimePicker1.Value = new System.DateTime(2015, 2, 19, 0, 0, 0, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
+            this.Tarih_Secici.CalendarTitleBackColor = System.Drawing.Color.Brown;
+            this.Tarih_Secici.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Tarih_Secici.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Tarih_Secici.CustomFormat = "";
+            this.Tarih_Secici.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Tarih_Secici.Location = new System.Drawing.Point(94, 54);
+            this.Tarih_Secici.Name = "Tarih_Secici";
+            this.Tarih_Secici.Size = new System.Drawing.Size(192, 20);
+            this.Tarih_Secici.TabIndex = 1;
+            this.Tarih_Secici.Value = new System.DateTime(2015, 2, 19, 0, 0, 0, 0);
+            this.Tarih_Secici.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
             // 
-            // comboBox1
+            // Branslar_Menu
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.Brown;
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(94, 28);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            this.Branslar_Menu.BackColor = System.Drawing.Color.Brown;
+            this.Branslar_Menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Branslar_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Branslar_Menu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Branslar_Menu.FormattingEnabled = true;
+            this.Branslar_Menu.Location = new System.Drawing.Point(94, 28);
+            this.Branslar_Menu.Name = "Branslar_Menu";
+            this.Branslar_Menu.Size = new System.Drawing.Size(200, 21);
+            this.Branslar_Menu.TabIndex = 3;
+            this.Branslar_Menu.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // giris
             // 
@@ -164,53 +164,53 @@
             this.giris.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
             this.giris.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
-            // textBox1
+            // kullanici_adi
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Brown;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox1.Location = new System.Drawing.Point(97, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
+            this.kullanici_adi.BackColor = System.Drawing.Color.Brown;
+            this.kullanici_adi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kullanici_adi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.kullanici_adi.Location = new System.Drawing.Point(97, 11);
+            this.kullanici_adi.Name = "kullanici_adi";
+            this.kullanici_adi.Size = new System.Drawing.Size(100, 20);
+            this.kullanici_adi.TabIndex = 6;
+            this.kullanici_adi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
             // 
-            // textBox2
+            // sifre
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Brown;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox2.Location = new System.Drawing.Point(97, 33);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
+            this.sifre.BackColor = System.Drawing.Color.Brown;
+            this.sifre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sifre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.sifre.Location = new System.Drawing.Point(97, 33);
+            this.sifre.Name = "sifre";
+            this.sifre.Size = new System.Drawing.Size(100, 20);
+            this.sifre.TabIndex = 7;
+            this.sifre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
             // 
-            // label1
+            // kullaniciadi_label
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Brown;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(8, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 19);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "kullanici adi";
+            this.kullaniciadi_label.AutoSize = true;
+            this.kullaniciadi_label.BackColor = System.Drawing.Color.Brown;
+            this.kullaniciadi_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kullaniciadi_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.kullaniciadi_label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.kullaniciadi_label.Location = new System.Drawing.Point(8, 12);
+            this.kullaniciadi_label.Name = "kullaniciadi_label";
+            this.kullaniciadi_label.Size = new System.Drawing.Size(83, 19);
+            this.kullaniciadi_label.TabIndex = 8;
+            this.kullaniciadi_label.Text = "kullanici adi";
             // 
-            // label2
+            // sifre_label
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Brown;
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(8, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 19);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "sifre";
+            this.sifre_label.AutoSize = true;
+            this.sifre_label.BackColor = System.Drawing.Color.Brown;
+            this.sifre_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sifre_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.sifre_label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.sifre_label.Location = new System.Drawing.Point(8, 36);
+            this.sifre_label.Name = "sifre_label";
+            this.sifre_label.Size = new System.Drawing.Size(37, 19);
+            this.sifre_label.TabIndex = 9;
+            this.sifre_label.Text = "sifre";
             // 
             // kayit
             // 
@@ -244,17 +244,17 @@
             this.tamam.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
             this.tamam.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
-            // label3
+            // email_Label
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Brown;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(3, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 15);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "e-mail adresi";
+            this.email_Label.AutoSize = true;
+            this.email_Label.BackColor = System.Drawing.Color.Brown;
+            this.email_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.email_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.email_Label.Location = new System.Drawing.Point(3, 49);
+            this.email_Label.Name = "email_Label";
+            this.email_Label.Size = new System.Drawing.Size(67, 15);
+            this.email_Label.TabIndex = 12;
+            this.email_Label.Text = "e-mail adresi";
             // 
             // textBox3
             // 
@@ -267,29 +267,29 @@
             this.textBox3.TabIndex = 15;
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
             // 
-            // textBox4
+            // Kod_Text
             // 
-            this.textBox4.BackColor = System.Drawing.Color.Brown;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox4.Location = new System.Drawing.Point(201, 97);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(61, 20);
-            this.textBox4.TabIndex = 16;
-            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
+            this.Kod_Text.BackColor = System.Drawing.Color.Brown;
+            this.Kod_Text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Kod_Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Kod_Text.Location = new System.Drawing.Point(201, 97);
+            this.Kod_Text.Name = "Kod_Text";
+            this.Kod_Text.Size = new System.Drawing.Size(61, 20);
+            this.Kod_Text.TabIndex = 16;
+            this.Kod_Text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
             // 
-            // label4
+            // Kod_Label
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Brown;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(169, 99);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 15);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Kod";
+            this.Kod_Label.AutoSize = true;
+            this.Kod_Label.BackColor = System.Drawing.Color.Brown;
+            this.Kod_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Kod_Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Kod_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Kod_Label.Location = new System.Drawing.Point(169, 99);
+            this.Kod_Label.Name = "Kod_Label";
+            this.Kod_Label.Size = new System.Drawing.Size(28, 15);
+            this.Kod_Label.TabIndex = 17;
+            this.Kod_Label.Text = "Kod";
             // 
             // textBox5
             // 
@@ -302,106 +302,106 @@
             this.textBox5.TabIndex = 18;
             this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
             // 
-            // textBox6
+            // Isim_Text
             // 
-            this.textBox6.BackColor = System.Drawing.Color.Brown;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox6.Location = new System.Drawing.Point(81, 6);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 19;
-            this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
+            this.Isim_Text.BackColor = System.Drawing.Color.Brown;
+            this.Isim_Text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Isim_Text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Isim_Text.Location = new System.Drawing.Point(81, 6);
+            this.Isim_Text.Name = "Isim_Text";
+            this.Isim_Text.Size = new System.Drawing.Size(100, 20);
+            this.Isim_Text.TabIndex = 19;
+            this.Isim_Text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox7_KeyPress);
             // 
-            // label5
+            // Isim_Label
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Brown;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(3, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 19);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "İsim";
+            this.Isim_Label.AutoSize = true;
+            this.Isim_Label.BackColor = System.Drawing.Color.Brown;
+            this.Isim_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Isim_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Isim_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Isim_Label.Location = new System.Drawing.Point(3, 5);
+            this.Isim_Label.Name = "Isim_Label";
+            this.Isim_Label.Size = new System.Drawing.Size(34, 19);
+            this.Isim_Label.TabIndex = 20;
+            this.Isim_Label.Text = "İsim";
             // 
-            // label6
+            // Soyisim_Label
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Brown;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(3, 27);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 19);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Soyisim";
+            this.Soyisim_Label.AutoSize = true;
+            this.Soyisim_Label.BackColor = System.Drawing.Color.Brown;
+            this.Soyisim_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Soyisim_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Soyisim_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Soyisim_Label.Location = new System.Drawing.Point(3, 27);
+            this.Soyisim_Label.Name = "Soyisim_Label";
+            this.Soyisim_Label.Size = new System.Drawing.Size(58, 19);
+            this.Soyisim_Label.TabIndex = 21;
+            this.Soyisim_Label.Text = "Soyisim";
             // 
-            // button6
+            // Ogretmen_Program
             // 
-            this.button6.BackColor = System.Drawing.Color.Brown;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(18, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(127, 25);
-            this.button6.TabIndex = 27;
-            this.button6.Text = "Ders Programları";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.Button6_Click);
-            this.button6.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
-            this.button6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
-            this.button6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
+            this.Ogretmen_Program.BackColor = System.Drawing.Color.Brown;
+            this.Ogretmen_Program.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ogretmen_Program.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Ogretmen_Program.Location = new System.Drawing.Point(18, 3);
+            this.Ogretmen_Program.Name = "Ogretmen_Program";
+            this.Ogretmen_Program.Size = new System.Drawing.Size(127, 25);
+            this.Ogretmen_Program.TabIndex = 27;
+            this.Ogretmen_Program.Text = "Ders Programları";
+            this.Ogretmen_Program.UseVisualStyleBackColor = false;
+            this.Ogretmen_Program.Click += new System.EventHandler(this.Button6_Click);
+            this.Ogretmen_Program.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
+            this.Ogretmen_Program.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
+            this.Ogretmen_Program.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
-            // button7
+            // Yeni_Ders
             // 
-            this.button7.BackColor = System.Drawing.Color.Brown;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button7.Location = new System.Drawing.Point(151, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(127, 23);
-            this.button7.TabIndex = 28;
-            this.button7.Text = "Yeni Ders Oluştur";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.Button7_Click);
-            this.button7.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
-            this.button7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
-            this.button7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
+            this.Yeni_Ders.BackColor = System.Drawing.Color.Brown;
+            this.Yeni_Ders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Yeni_Ders.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Yeni_Ders.Location = new System.Drawing.Point(151, 3);
+            this.Yeni_Ders.Name = "Yeni_Ders";
+            this.Yeni_Ders.Size = new System.Drawing.Size(127, 23);
+            this.Yeni_Ders.TabIndex = 28;
+            this.Yeni_Ders.Text = "Yeni Ders Oluştur";
+            this.Yeni_Ders.UseVisualStyleBackColor = false;
+            this.Yeni_Ders.Click += new System.EventHandler(this.Button7_Click);
+            this.Yeni_Ders.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
+            this.Yeni_Ders.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
+            this.Yeni_Ders.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
-            // button2
+            // sifremi_unuttum
             // 
-            this.button2.BackColor = System.Drawing.Color.Brown;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(18, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 23);
-            this.button2.TabIndex = 30;
-            this.button2.Text = "Şifremi Unuttum";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
-            this.button2.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
-            this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
-            this.button2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
+            this.sifremi_unuttum.BackColor = System.Drawing.Color.Brown;
+            this.sifremi_unuttum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sifremi_unuttum.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.sifremi_unuttum.Location = new System.Drawing.Point(18, 16);
+            this.sifremi_unuttum.Name = "sifremi_unuttum";
+            this.sifremi_unuttum.Size = new System.Drawing.Size(110, 23);
+            this.sifremi_unuttum.TabIndex = 30;
+            this.sifremi_unuttum.Text = "Şifremi Unuttum";
+            this.sifremi_unuttum.UseVisualStyleBackColor = false;
+            this.sifremi_unuttum.Click += new System.EventHandler(this.Button2_Click);
+            this.sifremi_unuttum.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
+            this.sifremi_unuttum.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
+            this.sifremi_unuttum.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
-            // button9
+            // yeni_sifre_gonder
             // 
-            this.button9.BackColor = System.Drawing.Color.Brown;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button9.Location = new System.Drawing.Point(186, 5);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 31;
-            this.button9.Text = "Gönder";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.Button9_Click);
-            this.button9.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
-            this.button9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
-            this.button9.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
+            this.yeni_sifre_gonder.BackColor = System.Drawing.Color.Brown;
+            this.yeni_sifre_gonder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.yeni_sifre_gonder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.yeni_sifre_gonder.Location = new System.Drawing.Point(186, 5);
+            this.yeni_sifre_gonder.Name = "yeni_sifre_gonder";
+            this.yeni_sifre_gonder.Size = new System.Drawing.Size(75, 23);
+            this.yeni_sifre_gonder.TabIndex = 31;
+            this.yeni_sifre_gonder.Text = "Gönder";
+            this.yeni_sifre_gonder.UseVisualStyleBackColor = false;
+            this.yeni_sifre_gonder.Click += new System.EventHandler(this.Button9_Click);
+            this.yeni_sifre_gonder.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
+            this.yeni_sifre_gonder.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
+            this.yeni_sifre_gonder.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
             // textBox7
             // 
@@ -445,41 +445,41 @@
             this.cikis_butonu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
             this.cikis_butonu.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
-            // label8
+            // Brans_Label
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Brown;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(43, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 17);
-            this.label8.TabIndex = 35;
-            this.label8.Text = "Branş";
+            this.Brans_Label.AutoSize = true;
+            this.Brans_Label.BackColor = System.Drawing.Color.Brown;
+            this.Brans_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Brans_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Brans_Label.Location = new System.Drawing.Point(43, 32);
+            this.Brans_Label.Name = "Brans_Label";
+            this.Brans_Label.Size = new System.Drawing.Size(45, 17);
+            this.Brans_Label.TabIndex = 35;
+            this.Brans_Label.Text = "Branş";
             // 
-            // label9
+            // Saat_Label
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Brown;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(14, 84);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 17);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "Ders Saati";
+            this.Saat_Label.AutoSize = true;
+            this.Saat_Label.BackColor = System.Drawing.Color.Brown;
+            this.Saat_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Saat_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Saat_Label.Location = new System.Drawing.Point(14, 84);
+            this.Saat_Label.Name = "Saat_Label";
+            this.Saat_Label.Size = new System.Drawing.Size(74, 17);
+            this.Saat_Label.TabIndex = 36;
+            this.Saat_Label.Text = "Ders Saati";
             // 
-            // label10
+            // DersTarihi_Label
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Brown;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(10, 57);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 17);
-            this.label10.TabIndex = 37;
-            this.label10.Text = "Ders Tarihi";
+            this.DersTarihi_Label.AutoSize = true;
+            this.DersTarihi_Label.BackColor = System.Drawing.Color.Brown;
+            this.DersTarihi_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DersTarihi_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.DersTarihi_Label.Location = new System.Drawing.Point(10, 57);
+            this.DersTarihi_Label.Name = "DersTarihi_Label";
+            this.DersTarihi_Label.Size = new System.Drawing.Size(78, 17);
+            this.DersTarihi_Label.TabIndex = 37;
+            this.DersTarihi_Label.Text = "Ders Tarihi";
             // 
             // dersprogrami
             // 
@@ -496,40 +496,40 @@
             this.dersprogrami.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellMouseLeave);
             this.dersprogrami.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView1_CellMouseMove);
             // 
-            // label11
+            // Hoca_Ismi_Label
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Brown;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(19, 127);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 17);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "Hoca İsmi";
+            this.Hoca_Ismi_Label.AutoSize = true;
+            this.Hoca_Ismi_Label.BackColor = System.Drawing.Color.Brown;
+            this.Hoca_Ismi_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Hoca_Ismi_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Hoca_Ismi_Label.Location = new System.Drawing.Point(19, 127);
+            this.Hoca_Ismi_Label.Name = "Hoca_Ismi_Label";
+            this.Hoca_Ismi_Label.Size = new System.Drawing.Size(69, 17);
+            this.Hoca_Ismi_Label.TabIndex = 41;
+            this.Hoca_Ismi_Label.Text = "Hoca İsmi";
             // 
-            // textBox8
+            // yeni_hoca_text
             // 
-            this.textBox8.BackColor = System.Drawing.Color.Brown;
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox8.Location = new System.Drawing.Point(94, 124);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(182, 20);
-            this.textBox8.TabIndex = 42;
+            this.yeni_hoca_text.BackColor = System.Drawing.Color.Brown;
+            this.yeni_hoca_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.yeni_hoca_text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.yeni_hoca_text.Location = new System.Drawing.Point(94, 124);
+            this.yeni_hoca_text.Name = "yeni_hoca_text";
+            this.yeni_hoca_text.Size = new System.Drawing.Size(182, 20);
+            this.yeni_hoca_text.TabIndex = 42;
             // 
-            // label12
+            // HocaAdi_Label
             // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Brown;
-            this.label12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(6, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 17);
-            this.label12.TabIndex = 44;
-            this.label12.Text = "Hoca Adi";
+            this.HocaAdi_Label.AutoSize = true;
+            this.HocaAdi_Label.BackColor = System.Drawing.Color.Brown;
+            this.HocaAdi_Label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HocaAdi_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.HocaAdi_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HocaAdi_Label.Location = new System.Drawing.Point(6, 16);
+            this.HocaAdi_Label.Name = "HocaAdi_Label";
+            this.HocaAdi_Label.Size = new System.Drawing.Size(65, 17);
+            this.HocaAdi_Label.TabIndex = 44;
+            this.HocaAdi_Label.Text = "Hoca Adi";
             // 
             // label13
             // 
@@ -544,48 +544,48 @@
             this.label13.TabIndex = 46;
             this.label13.Text = "Hocalar";
             // 
-            // comboBox3
+            // Brans_Hocalar_Menu
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.Brown;
-            this.comboBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox3.Enabled = false;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(86, 69);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(158, 21);
-            this.comboBox3.TabIndex = 47;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.ComboBox3_SelectedIndexChanged);
+            this.Brans_Hocalar_Menu.BackColor = System.Drawing.Color.Brown;
+            this.Brans_Hocalar_Menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Brans_Hocalar_Menu.Enabled = false;
+            this.Brans_Hocalar_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Brans_Hocalar_Menu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Brans_Hocalar_Menu.FormattingEnabled = true;
+            this.Brans_Hocalar_Menu.Location = new System.Drawing.Point(86, 69);
+            this.Brans_Hocalar_Menu.Name = "Brans_Hocalar_Menu";
+            this.Brans_Hocalar_Menu.Size = new System.Drawing.Size(158, 21);
+            this.Brans_Hocalar_Menu.TabIndex = 47;
+            this.Brans_Hocalar_Menu.SelectedIndexChanged += new System.EventHandler(this.ComboBox3_SelectedIndexChanged);
             // 
-            // button14
+            // Ders_Ara
             // 
-            this.button14.BackColor = System.Drawing.Color.Brown;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button14.Location = new System.Drawing.Point(110, 126);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 23);
-            this.button14.TabIndex = 48;
-            this.button14.Text = "Ders Ara";
-            this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.Button14_Click);
-            this.button14.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
-            this.button14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
-            this.button14.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
+            this.Ders_Ara.BackColor = System.Drawing.Color.Brown;
+            this.Ders_Ara.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ders_Ara.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Ders_Ara.Location = new System.Drawing.Point(110, 126);
+            this.Ders_Ara.Name = "Ders_Ara";
+            this.Ders_Ara.Size = new System.Drawing.Size(75, 23);
+            this.Ders_Ara.TabIndex = 48;
+            this.Ders_Ara.Text = "Ders Ara";
+            this.Ders_Ara.UseVisualStyleBackColor = false;
+            this.Ders_Ara.Click += new System.EventHandler(this.Ders_Ara_Click);
+            this.Ders_Ara.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
+            this.Ders_Ara.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
+            this.Ders_Ara.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
-            // comboBox4
+            // Gunler_Menu
             // 
-            this.comboBox4.BackColor = System.Drawing.Color.Brown;
-            this.comboBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox4.Enabled = false;
-            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(86, 93);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(158, 21);
-            this.comboBox4.TabIndex = 49;
+            this.Gunler_Menu.BackColor = System.Drawing.Color.Brown;
+            this.Gunler_Menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Gunler_Menu.Enabled = false;
+            this.Gunler_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Gunler_Menu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Gunler_Menu.FormattingEnabled = true;
+            this.Gunler_Menu.Location = new System.Drawing.Point(86, 93);
+            this.Gunler_Menu.Name = "Gunler_Menu";
+            this.Gunler_Menu.Size = new System.Drawing.Size(158, 21);
+            this.Gunler_Menu.TabIndex = 49;
             // 
             // label14
             // 
@@ -600,37 +600,37 @@
             this.label14.TabIndex = 50;
             this.label14.Text = "Ders Günü";
             // 
-            // button15
+            // Ogrenci_Program
             // 
-            this.button15.BackColor = System.Drawing.Color.Brown;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button15.Location = new System.Drawing.Point(13, 13);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(127, 23);
-            this.button15.TabIndex = 51;
-            this.button15.Text = "Aldığım Dersler";
-            this.button15.UseVisualStyleBackColor = false;
-            this.button15.Click += new System.EventHandler(this.Button15_Click);
-            this.button15.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
-            this.button15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
-            this.button15.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
+            this.Ogrenci_Program.BackColor = System.Drawing.Color.Brown;
+            this.Ogrenci_Program.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ogrenci_Program.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Ogrenci_Program.Location = new System.Drawing.Point(13, 13);
+            this.Ogrenci_Program.Name = "Ogrenci_Program";
+            this.Ogrenci_Program.Size = new System.Drawing.Size(127, 23);
+            this.Ogrenci_Program.TabIndex = 51;
+            this.Ogrenci_Program.Text = "Aldığım Dersler";
+            this.Ogrenci_Program.UseVisualStyleBackColor = false;
+            this.Ogrenci_Program.Click += new System.EventHandler(this.Button15_Click);
+            this.Ogrenci_Program.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
+            this.Ogrenci_Program.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
+            this.Ogrenci_Program.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
-            // button16
+            // Ders_Kayıt
             // 
-            this.button16.BackColor = System.Drawing.Color.Brown;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button16.Location = new System.Drawing.Point(151, 13);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(126, 23);
-            this.button16.TabIndex = 52;
-            this.button16.Text = "Derse Kaydol";
-            this.button16.UseVisualStyleBackColor = false;
-            this.button16.Click += new System.EventHandler(this.Button16_Click);
-            this.button16.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
-            this.button16.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
-            this.button16.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
+            this.Ders_Kayıt.BackColor = System.Drawing.Color.Brown;
+            this.Ders_Kayıt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ders_Kayıt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Ders_Kayıt.Location = new System.Drawing.Point(151, 13);
+            this.Ders_Kayıt.Name = "Ders_Kayıt";
+            this.Ders_Kayıt.Size = new System.Drawing.Size(126, 23);
+            this.Ders_Kayıt.TabIndex = 52;
+            this.Ders_Kayıt.Text = "Derse Kaydol";
+            this.Ders_Kayıt.UseVisualStyleBackColor = false;
+            this.Ders_Kayıt.Click += new System.EventHandler(this.Button16_Click);
+            this.Ders_Kayıt.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
+            this.Ders_Kayıt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
+            this.Ders_Kayıt.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
             // label15
             // 
@@ -645,96 +645,96 @@
             this.label15.TabIndex = 53;
             this.label15.Text = "Ders Adı:";
             // 
-            // comboBox5
+            // Brans_Menu
             // 
-            this.comboBox5.BackColor = System.Drawing.Color.Brown;
-            this.comboBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(86, 42);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 21);
-            this.comboBox5.TabIndex = 54;
-            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.ComboBox5_SelectedIndexChanged);
+            this.Brans_Menu.BackColor = System.Drawing.Color.Brown;
+            this.Brans_Menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Brans_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Brans_Menu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Brans_Menu.FormattingEnabled = true;
+            this.Brans_Menu.Location = new System.Drawing.Point(86, 42);
+            this.Brans_Menu.Name = "Brans_Menu";
+            this.Brans_Menu.Size = new System.Drawing.Size(121, 21);
+            this.Brans_Menu.TabIndex = 54;
+            this.Brans_Menu.SelectedIndexChanged += new System.EventHandler(this.Brans_Menu_SelectedIndexChanged);
             // 
-            // comboBox2
+            // Saat_Menu
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.Brown;
-            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(94, 80);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(120, 21);
-            this.comboBox2.TabIndex = 56;
+            this.Saat_Menu.BackColor = System.Drawing.Color.Brown;
+            this.Saat_Menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Saat_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Saat_Menu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Saat_Menu.FormattingEnabled = true;
+            this.Saat_Menu.Location = new System.Drawing.Point(94, 80);
+            this.Saat_Menu.Name = "Saat_Menu";
+            this.Saat_Menu.Size = new System.Drawing.Size(120, 21);
+            this.Saat_Menu.TabIndex = 56;
             // 
-            // comboBox6
+            // Hocalar_Menu
             // 
-            this.comboBox6.BackColor = System.Drawing.Color.Brown;
-            this.comboBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(85, 12);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(190, 21);
-            this.comboBox6.TabIndex = 57;
-            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.ComboBox6_SelectedIndexChanged);
+            this.Hocalar_Menu.BackColor = System.Drawing.Color.Brown;
+            this.Hocalar_Menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Hocalar_Menu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Hocalar_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Hocalar_Menu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Hocalar_Menu.FormattingEnabled = true;
+            this.Hocalar_Menu.Location = new System.Drawing.Point(85, 12);
+            this.Hocalar_Menu.Name = "Hocalar_Menu";
+            this.Hocalar_Menu.Size = new System.Drawing.Size(190, 21);
+            this.Hocalar_Menu.TabIndex = 57;
+            this.Hocalar_Menu.SelectedIndexChanged += new System.EventHandler(this.ComboBox6_SelectedIndexChanged);
             // 
-            // label16
+            // Siniff_Label
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Brown;
-            this.label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label16.Location = new System.Drawing.Point(4, 70);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 19);
-            this.label16.TabIndex = 58;
-            this.label16.Text = "Sınıf:";
+            this.Siniff_Label.AutoSize = true;
+            this.Siniff_Label.BackColor = System.Drawing.Color.Brown;
+            this.Siniff_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Siniff_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Siniff_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Siniff_Label.Location = new System.Drawing.Point(4, 70);
+            this.Siniff_Label.Name = "Siniff_Label";
+            this.Siniff_Label.Size = new System.Drawing.Size(41, 19);
+            this.Siniff_Label.TabIndex = 58;
+            this.Siniff_Label.Text = "Sınıf:";
             // 
-            // comboBox7
+            // Siniff_Menu
             // 
-            this.comboBox7.BackColor = System.Drawing.Color.Brown;
-            this.comboBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(81, 70);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(81, 21);
-            this.comboBox7.TabIndex = 59;
+            this.Siniff_Menu.BackColor = System.Drawing.Color.Brown;
+            this.Siniff_Menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Siniff_Menu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Siniff_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Siniff_Menu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Siniff_Menu.FormattingEnabled = true;
+            this.Siniff_Menu.Location = new System.Drawing.Point(81, 70);
+            this.Siniff_Menu.Name = "Siniff_Menu";
+            this.Siniff_Menu.Size = new System.Drawing.Size(81, 21);
+            this.Siniff_Menu.TabIndex = 59;
             // 
-            // label17
+            // Sinif_Label
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Brown;
-            this.label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label17.Location = new System.Drawing.Point(44, 5);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 19);
-            this.label17.TabIndex = 60;
-            this.label17.Text = "Sınıf:";
+            this.Sinif_Label.AutoSize = true;
+            this.Sinif_Label.BackColor = System.Drawing.Color.Brown;
+            this.Sinif_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Sinif_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Sinif_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Sinif_Label.Location = new System.Drawing.Point(44, 5);
+            this.Sinif_Label.Name = "Sinif_Label";
+            this.Sinif_Label.Size = new System.Drawing.Size(41, 19);
+            this.Sinif_Label.TabIndex = 60;
+            this.Sinif_Label.Text = "Sınıf:";
             // 
-            // comboBox8
+            // Sınıf_Menu
             // 
-            this.comboBox8.BackColor = System.Drawing.Color.Brown;
-            this.comboBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(94, 3);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(81, 21);
-            this.comboBox8.TabIndex = 61;
+            this.Sınıf_Menu.BackColor = System.Drawing.Color.Brown;
+            this.Sınıf_Menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Sınıf_Menu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Sınıf_Menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Sınıf_Menu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Sınıf_Menu.FormattingEnabled = true;
+            this.Sınıf_Menu.Location = new System.Drawing.Point(94, 3);
+            this.Sınıf_Menu.Name = "Sınıf_Menu";
+            this.Sınıf_Menu.Size = new System.Drawing.Size(81, 21);
+            this.Sınıf_Menu.TabIndex = 61;
             // 
             // button3
             // 
@@ -749,18 +749,18 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.Button3_Click_1);
             // 
-            // comboBox9
+            // hoca_from_list
             // 
-            this.comboBox9.BackColor = System.Drawing.Color.Brown;
-            this.comboBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(94, 124);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(175, 21);
-            this.comboBox9.TabIndex = 63;
+            this.hoca_from_list.BackColor = System.Drawing.Color.Brown;
+            this.hoca_from_list.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hoca_from_list.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hoca_from_list.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hoca_from_list.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.hoca_from_list.FormattingEnabled = true;
+            this.hoca_from_list.Location = new System.Drawing.Point(94, 124);
+            this.hoca_from_list.Name = "hoca_from_list";
+            this.hoca_from_list.Size = new System.Drawing.Size(175, 21);
+            this.hoca_from_list.TabIndex = 63;
             // 
             // listeden_sec
             // 
@@ -777,25 +777,25 @@
             this.listeden_sec.UseVisualStyleBackColor = false;
             this.listeden_sec.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
             // 
-            // radioButton2
+            // yeni_hoca_ekle
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Brown;
-            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.radioButton2.Location = new System.Drawing.Point(145, 107);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(69, 17);
-            this.radioButton2.TabIndex = 65;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Yeni Ekle";
-            this.radioButton2.UseVisualStyleBackColor = false;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.RadioButton2_CheckedChanged);
+            this.yeni_hoca_ekle.AutoSize = true;
+            this.yeni_hoca_ekle.BackColor = System.Drawing.Color.Brown;
+            this.yeni_hoca_ekle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.yeni_hoca_ekle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.yeni_hoca_ekle.Location = new System.Drawing.Point(145, 107);
+            this.yeni_hoca_ekle.Name = "yeni_hoca_ekle";
+            this.yeni_hoca_ekle.Size = new System.Drawing.Size(69, 17);
+            this.yeni_hoca_ekle.TabIndex = 65;
+            this.yeni_hoca_ekle.TabStop = true;
+            this.yeni_hoca_ekle.Text = "Yeni Ekle";
+            this.yeni_hoca_ekle.UseVisualStyleBackColor = false;
+            this.yeni_hoca_ekle.CheckedChanged += new System.EventHandler(this.RadioButton2_CheckedChanged);
             // 
             // Giris_Paneli
             // 
             this.Giris_Paneli.Controls.Add(this.email_paneli);
-            this.Giris_Paneli.Controls.Add(this.button2);
+            this.Giris_Paneli.Controls.Add(this.sifremi_unuttum);
             this.Giris_Paneli.Controls.Add(this.giris);
             this.Giris_Paneli.Controls.Add(this.kayit);
             this.Giris_Paneli.Location = new System.Drawing.Point(12, 5);
@@ -805,7 +805,7 @@
             // 
             // email_paneli
             // 
-            this.email_paneli.Controls.Add(this.button9);
+            this.email_paneli.Controls.Add(this.yeni_sifre_gonder);
             this.email_paneli.Controls.Add(this.textBox7);
             this.email_paneli.Controls.Add(this.label7);
             this.email_paneli.Location = new System.Drawing.Point(18, 42);
@@ -817,12 +817,12 @@
             // Ders_Secim_Paneli
             // 
             this.Ders_Secim_Paneli.Controls.Add(this.label15);
-            this.Ders_Secim_Paneli.Controls.Add(this.comboBox5);
+            this.Ders_Secim_Paneli.Controls.Add(this.Brans_Menu);
             this.Ders_Secim_Paneli.Controls.Add(this.label13);
-            this.Ders_Secim_Paneli.Controls.Add(this.comboBox3);
+            this.Ders_Secim_Paneli.Controls.Add(this.Brans_Hocalar_Menu);
             this.Ders_Secim_Paneli.Controls.Add(this.label14);
-            this.Ders_Secim_Paneli.Controls.Add(this.comboBox4);
-            this.Ders_Secim_Paneli.Controls.Add(this.button14);
+            this.Ders_Secim_Paneli.Controls.Add(this.Gunler_Menu);
+            this.Ders_Secim_Paneli.Controls.Add(this.Ders_Ara);
             this.Ders_Secim_Paneli.Location = new System.Drawing.Point(295, 170);
             this.Ders_Secim_Paneli.Name = "Ders_Secim_Paneli";
             this.Ders_Secim_Paneli.Size = new System.Drawing.Size(277, 164);
@@ -832,18 +832,18 @@
             // Kayit_Paneli
             // 
             this.Kayit_Paneli.Controls.Add(this.kayit_tamamla);
-            this.Kayit_Paneli.Controls.Add(this.label18);
+            this.Kayit_Paneli.Controls.Add(this.KullaniciTipi_Label);
             this.Kayit_Paneli.Controls.Add(this.kullanici_tipi);
-            this.Kayit_Paneli.Controls.Add(this.label5);
-            this.Kayit_Paneli.Controls.Add(this.textBox6);
-            this.Kayit_Paneli.Controls.Add(this.label6);
+            this.Kayit_Paneli.Controls.Add(this.Isim_Label);
+            this.Kayit_Paneli.Controls.Add(this.Isim_Text);
+            this.Kayit_Paneli.Controls.Add(this.Soyisim_Label);
             this.Kayit_Paneli.Controls.Add(this.textBox5);
-            this.Kayit_Paneli.Controls.Add(this.label3);
+            this.Kayit_Paneli.Controls.Add(this.email_Label);
             this.Kayit_Paneli.Controls.Add(this.textBox3);
-            this.Kayit_Paneli.Controls.Add(this.label4);
-            this.Kayit_Paneli.Controls.Add(this.textBox4);
-            this.Kayit_Paneli.Controls.Add(this.label16);
-            this.Kayit_Paneli.Controls.Add(this.comboBox7);
+            this.Kayit_Paneli.Controls.Add(this.Kod_Label);
+            this.Kayit_Paneli.Controls.Add(this.Kod_Text);
+            this.Kayit_Paneli.Controls.Add(this.Siniff_Label);
+            this.Kayit_Paneli.Controls.Add(this.Siniff_Menu);
             this.Kayit_Paneli.Location = new System.Drawing.Point(4, 140);
             this.Kayit_Paneli.Name = "Kayit_Paneli";
             this.Kayit_Paneli.Size = new System.Drawing.Size(288, 161);
@@ -863,17 +863,17 @@
             this.kayit_tamamla.UseVisualStyleBackColor = false;
             this.kayit_tamamla.Click += new System.EventHandler(this.Kayit_tamamla_Click);
             // 
-            // label18
+            // KullaniciTipi_Label
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Brown;
-            this.label18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label18.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label18.Location = new System.Drawing.Point(3, 99);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 15);
-            this.label18.TabIndex = 61;
-            this.label18.Text = "Kullanıcı Tipi";
+            this.KullaniciTipi_Label.AutoSize = true;
+            this.KullaniciTipi_Label.BackColor = System.Drawing.Color.Brown;
+            this.KullaniciTipi_Label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.KullaniciTipi_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.KullaniciTipi_Label.Location = new System.Drawing.Point(3, 99);
+            this.KullaniciTipi_Label.Name = "KullaniciTipi_Label";
+            this.KullaniciTipi_Label.Size = new System.Drawing.Size(68, 15);
+            this.KullaniciTipi_Label.TabIndex = 61;
+            this.KullaniciTipi_Label.Text = "Kullanıcı Tipi";
             // 
             // kullanici_tipi
             // 
@@ -891,20 +891,20 @@
             // 
             // Ders_Olusturma_Paneli
             // 
-            this.Ders_Olusturma_Paneli.Controls.Add(this.label8);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.radioButton2);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.Brans_Label);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.yeni_hoca_ekle);
             this.Ders_Olusturma_Paneli.Controls.Add(this.listeden_sec);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.comboBox9);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.comboBox1);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.comboBox2);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.comboBox8);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.textBox8);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.label17);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.label11);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.label9);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.label10);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.button1);
-            this.Ders_Olusturma_Paneli.Controls.Add(this.dateTimePicker1);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.hoca_from_list);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.Branslar_Menu);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.Saat_Menu);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.Sınıf_Menu);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.yeni_hoca_text);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.Sinif_Label);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.Hoca_Ismi_Label);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.Saat_Label);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.DersTarihi_Label);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.Ders_Olustur_Butonu);
+            this.Ders_Olusturma_Paneli.Controls.Add(this.Tarih_Secici);
             this.Ders_Olusturma_Paneli.Location = new System.Drawing.Point(551, 93);
             this.Ders_Olusturma_Paneli.Name = "Ders_Olusturma_Paneli";
             this.Ders_Olusturma_Paneli.Size = new System.Drawing.Size(292, 202);
@@ -913,8 +913,8 @@
             // 
             // ogrenci_loggin_paneli
             // 
-            this.ogrenci_loggin_paneli.Controls.Add(this.button15);
-            this.ogrenci_loggin_paneli.Controls.Add(this.button16);
+            this.ogrenci_loggin_paneli.Controls.Add(this.Ogrenci_Program);
+            this.ogrenci_loggin_paneli.Controls.Add(this.Ders_Kayıt);
             this.ogrenci_loggin_paneli.Location = new System.Drawing.Point(459, 43);
             this.ogrenci_loggin_paneli.Name = "ogrenci_loggin_paneli";
             this.ogrenci_loggin_paneli.Size = new System.Drawing.Size(302, 39);
@@ -923,8 +923,8 @@
             // 
             // ogretmen_loggin_paneli
             // 
-            this.ogretmen_loggin_paneli.Controls.Add(this.button6);
-            this.ogretmen_loggin_paneli.Controls.Add(this.button7);
+            this.ogretmen_loggin_paneli.Controls.Add(this.Ogretmen_Program);
+            this.ogretmen_loggin_paneli.Controls.Add(this.Yeni_Ders);
             this.ogretmen_loggin_paneli.Location = new System.Drawing.Point(459, 4);
             this.ogretmen_loggin_paneli.Name = "ogretmen_loggin_paneli";
             this.ogretmen_loggin_paneli.Size = new System.Drawing.Size(293, 33);
@@ -933,8 +933,8 @@
             // 
             // excel_paneli
             // 
-            this.excel_paneli.Controls.Add(this.comboBox6);
-            this.excel_paneli.Controls.Add(this.label12);
+            this.excel_paneli.Controls.Add(this.Hocalar_Menu);
+            this.excel_paneli.Controls.Add(this.HocaAdi_Label);
             this.excel_paneli.Controls.Add(this.button3);
             this.excel_paneli.Location = new System.Drawing.Point(295, 96);
             this.excel_paneli.Name = "excel_paneli";
@@ -945,10 +945,10 @@
             // giriss_paneli
             // 
             this.giriss_paneli.Controls.Add(this.tamam);
-            this.giriss_paneli.Controls.Add(this.label2);
-            this.giriss_paneli.Controls.Add(this.label1);
-            this.giriss_paneli.Controls.Add(this.textBox2);
-            this.giriss_paneli.Controls.Add(this.textBox1);
+            this.giriss_paneli.Controls.Add(this.sifre_label);
+            this.giriss_paneli.Controls.Add(this.kullaniciadi_label);
+            this.giriss_paneli.Controls.Add(this.sifre);
+            this.giriss_paneli.Controls.Add(this.kullanici_adi);
             this.giriss_paneli.Location = new System.Drawing.Point(0, 56);
             this.giriss_paneli.Name = "giriss_paneli";
             this.giriss_paneli.Size = new System.Drawing.Size(277, 84);
@@ -999,57 +999,57 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button Ders_Olustur_Butonu;
+        private System.Windows.Forms.DateTimePicker Tarih_Secici;
+        private System.Windows.Forms.ComboBox Branslar_Menu;
         private System.Windows.Forms.Button giris;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox kullanici_adi;
+        private System.Windows.Forms.TextBox sifre;
+        private System.Windows.Forms.Label kullaniciadi_label;
+        private System.Windows.Forms.Label sifre_label;
         private System.Windows.Forms.Button kayit;
         private System.Windows.Forms.Button tamam;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label email_Label;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox Kod_Text;
+        private System.Windows.Forms.Label Kod_Label;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TextBox Isim_Text;
+        private System.Windows.Forms.Label Isim_Label;
+        private System.Windows.Forms.Label Soyisim_Label;
+        private System.Windows.Forms.Button Ogretmen_Program;
+        private System.Windows.Forms.Button Yeni_Ders;
+        private System.Windows.Forms.Button sifremi_unuttum;
+        private System.Windows.Forms.Button yeni_sifre_gonder;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button cikis_butonu;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label Brans_Label;
+        private System.Windows.Forms.Label Saat_Label;
+        private System.Windows.Forms.Label DersTarihi_Label;
         private System.Windows.Forms.DataGridView dersprogrami;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label Hoca_Ismi_Label;
+        private System.Windows.Forms.TextBox yeni_hoca_text;
+        private System.Windows.Forms.Label HocaAdi_Label;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox Brans_Hocalar_Menu;
+        private System.Windows.Forms.Button Ders_Ara;
+        private System.Windows.Forms.ComboBox Gunler_Menu;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button Ogrenci_Program;
+        private System.Windows.Forms.Button Ders_Kayıt;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox Brans_Menu;
+        private System.Windows.Forms.ComboBox Saat_Menu;
+        private System.Windows.Forms.ComboBox Hocalar_Menu;
+        private System.Windows.Forms.Label Siniff_Label;
+        private System.Windows.Forms.ComboBox Siniff_Menu;
+        private System.Windows.Forms.Label Sinif_Label;
+        private System.Windows.Forms.ComboBox Sınıf_Menu;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.ComboBox hoca_from_list;
         private System.Windows.Forms.RadioButton listeden_sec;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton yeni_hoca_ekle;
         private System.Windows.Forms.Panel Giris_Paneli;
         private System.Windows.Forms.Panel Ders_Secim_Paneli;
         private System.Windows.Forms.Panel Kayit_Paneli;
@@ -1059,7 +1059,7 @@
         private System.Windows.Forms.Panel excel_paneli;
         private System.Windows.Forms.Panel giriss_paneli;
         private System.Windows.Forms.Panel email_paneli;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label KullaniciTipi_Label;
         private System.Windows.Forms.ComboBox kullanici_tipi;
         private System.Windows.Forms.Button kayit_tamamla;
     }

@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 using System.Configuration;
-using System.Net;
 using System.Net.Mail;
 using System.Drawing;
-
+using Excel = Microsoft.Office.Interop.Excel;
+using static WindowsFormsApp1.Program;
 namespace WindowsFormsApp1
 {
     class Helpers
@@ -19,6 +17,9 @@ namespace WindowsFormsApp1
         {
             int rowindex = FindRow(datag, saat);
             int colindex = FindCol(datag, gun);
+            MessageBox.Show(rowindex.ToString() + "\n" + colindex.ToString());
+            if (rowindex == -1 || colindex == -1)
+                return null;
             using(DataGridViewCell cell = datag.Rows[rowindex].Cells[colindex])
             {
                 Color cellcolor = cell.Style.BackColor;
@@ -74,6 +75,29 @@ namespace WindowsFormsApp1
             }
         }
 
+        static public string select_query_template(string[] selectall,string selectfrom,string[] wheres)
+        {
+            string query = select + " ";
+            int count = 0;
+            foreach (string selects in selectall)
+            {
+                query += selects;
+                count++;
+                if (count < selectall.Length)
+                    query += ", ";
+            }
+            query += "from " + selectfrom + " ";
+            count = 0;
+            foreach (string where in wheres)
+            {
+                query += where;
+                count++;
+                if (count < wheres.Length)
+                    query += " and ";
+            }
+            return query;
+        }
+
         static public Dictionary<string, List<string>> Sqlreaderexecuter(string comm)
         {
             string constr = ConfigurationManager.ConnectionStrings["derssecimconnection"].ConnectionString.ToString();
@@ -105,6 +129,15 @@ namespace WindowsFormsApp1
                     }
                 }
             }
+        }
+
+        static public void Gun_Saat_Duzenleyici(DateTimePicker Tarih_Secici,ComboBox combobox)
+        {
+            string gun = Hangi_Gun(Tarih_Secici);
+            if (gun == "Cumartesi")
+                combobox.Items.AddRange(Ders_saatleri.Take(Ders_saatleri.Length / 2).ToArray());
+            else
+                combobox.Items.AddRange(Ders_saatleri.Skip(Ders_saatleri.Length / 2).ToArray());
         }
 
         static public string Hangi_Gun(DateTimePicker datepicker)
@@ -157,6 +190,24 @@ namespace WindowsFormsApp1
                 datag.Columns.Clear();
             }
         }
+
+        static public void FillDataGridView(DataGridView datagridview,Dictionary<string,List<string>> mydict,bool isstudent)
+        {
+            int timec = mydict["time"].Count;
+            for (int i = 0; i < timec; i++)
+            {
+                DataGridViewCell cell = Datagridcellreturner(datagridview, mydict["DersGünü"][i], mydict["time"][i]);
+                if(isstudent)
+                {
+                    string hocaname = $"select isim from Hocalar where Hoca_id = '{mydict["hocaid"][i]}'";
+                    hocaname = Sqlexecuter(hocaname, 1);
+                    cell.Value = mydict["DersAdi"][i] + "\n" + hocaname;
+                }
+                else
+                    cell.Value = "Kayitli Ogrenci: " + mydict["Enrolled"][i];
+                cell.Style.BackColor = Color.Blue;
+            }
+        }
         static public bool Email(string konu, string icerik, string maill)
         {
             using (SmtpClient client = new SmtpClient())
@@ -187,43 +238,73 @@ namespace WindowsFormsApp1
             datet.CustomFormat = "yyyy-MM-dddd";
             datet.Hide();
         }
-        static public void control_hide(Control[] controls)
+        static public void Control_hide(Control[] controls)
         {
             foreach (Control control in controls)
                 control.Hide();
         }
-        static public void control_show(Control[] controls)
+        static public void Control_show(Control[] controls)
         {
             foreach (Control control in controls)
                 control.Show();
         }
-        static public void control_enable(Control[] controls)
+        static public void Control_enable(Control[] controls)
         {
             foreach (Control control in controls)
                 control.Enabled = true;
         }
-        static public void control_disable(Control[] controls)
+        static public void Control_disable(Control[] controls)
         {
             foreach (Control control in controls)
                 control.Enabled = false;
         }
-        static public void combobox_dropdown(ComboBox[] comboboxes)
+        static public void Combobox_dropdown(ComboBox[] comboboxes)
         {
             foreach (ComboBox combobox in comboboxes)
                 combobox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-        static public void combobox_clear(ComboBox[] comboboxes)
+        static public void Combobox_clear(ComboBox[] comboboxes,bool clear,bool indexclear)
         {
             foreach (ComboBox combobox in comboboxes)
             {
-                combobox.Items.Clear();
-                combobox.SelectedIndex = -1;
+                if(clear)
+                    combobox.Items.Clear();
+                if(indexclear)
+                    combobox.SelectedIndex = -1;
             }
                
         }
-        static public void combobox_insert_array(ComboBox combobox,string[] values)
+        static public void FillComboBoxWithList(ComboBox comboBox, List<string> mylist)
         {
-           combobox.Items.AddRange(values);
+            mylist = mylist.Distinct().ToList();
+            string[] ListToString = mylist.ToArray();
+            comboBox.Items.AddRange(ListToString);
+        }
+        static public void CopyAlltoClipboard(DataGridView dersprogrami)
+        {
+            dersprogrami.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            dersprogrami.MultiSelect = true;
+            dersprogrami.SelectAll();
+            DataObject dataObj = dersprogrami.GetClipboardContent();
+            if (dataObj != null) Clipboard.SetDataObject(dataObj);
+        }
+        static public void ToExcel(SaveFileDialog savefile)
+        {
+            Excel.Application xlexcel;
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+            xlexcel = new Excel.Application
+            {
+                Visible = true
+            };
+            xlWorkBook = xlexcel.Workbooks.Add(misValue);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+            xlWorkSheet.Columns.AutoFit();
+            xlWorkSheet.SaveAs($@"{savefile.FileName}.xlsx");
         }
     }
 }
