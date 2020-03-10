@@ -90,8 +90,11 @@
             this.Ders_Olusturma_Paneli = new System.Windows.Forms.Panel();
             this.ogrenci_loggin_paneli = new System.Windows.Forms.Panel();
             this.ogretmen_loggin_paneli = new System.Windows.Forms.Panel();
+            this.Ogrenci_Liste_Butonu = new System.Windows.Forms.Button();
             this.excel_paneli = new System.Windows.Forms.Panel();
             this.giriss_paneli = new System.Windows.Forms.Panel();
+            this.Ortak_Panel = new System.Windows.Forms.Panel();
+            this.Profil = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dersprogrami)).BeginInit();
             this.Giris_Paneli.SuspendLayout();
             this.email_paneli.SuspendLayout();
@@ -102,6 +105,7 @@
             this.ogretmen_loggin_paneli.SuspendLayout();
             this.excel_paneli.SuspendLayout();
             this.giriss_paneli.SuspendLayout();
+            this.Ortak_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Ders_Olustur_Butonu
@@ -344,9 +348,9 @@
             this.Ogretmen_Program.BackColor = System.Drawing.Color.Brown;
             this.Ogretmen_Program.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Ogretmen_Program.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Ogretmen_Program.Location = new System.Drawing.Point(18, 3);
+            this.Ogretmen_Program.Location = new System.Drawing.Point(128, 7);
             this.Ogretmen_Program.Name = "Ogretmen_Program";
-            this.Ogretmen_Program.Size = new System.Drawing.Size(127, 25);
+            this.Ogretmen_Program.Size = new System.Drawing.Size(127, 26);
             this.Ogretmen_Program.TabIndex = 27;
             this.Ogretmen_Program.Text = "Ders Programları";
             this.Ogretmen_Program.UseVisualStyleBackColor = false;
@@ -360,9 +364,9 @@
             this.Yeni_Ders.BackColor = System.Drawing.Color.Brown;
             this.Yeni_Ders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Yeni_Ders.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Yeni_Ders.Location = new System.Drawing.Point(151, 3);
+            this.Yeni_Ders.Location = new System.Drawing.Point(261, 7);
             this.Yeni_Ders.Name = "Yeni_Ders";
-            this.Yeni_Ders.Size = new System.Drawing.Size(127, 23);
+            this.Yeni_Ders.Size = new System.Drawing.Size(127, 26);
             this.Yeni_Ders.TabIndex = 28;
             this.Yeni_Ders.Text = "Yeni Ders Oluştur";
             this.Yeni_Ders.UseVisualStyleBackColor = false;
@@ -433,13 +437,12 @@
             this.cikis_butonu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cikis_butonu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cikis_butonu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cikis_butonu.Location = new System.Drawing.Point(758, 8);
+            this.cikis_butonu.Location = new System.Drawing.Point(3, 54);
             this.cikis_butonu.Name = "cikis_butonu";
             this.cikis_butonu.Size = new System.Drawing.Size(75, 29);
             this.cikis_butonu.TabIndex = 34;
             this.cikis_butonu.Text = "Çıkış";
             this.cikis_butonu.UseVisualStyleBackColor = false;
-            this.cikis_butonu.Visible = false;
             this.cikis_butonu.Click += new System.EventHandler(this.Button10_Click);
             this.cikis_butonu.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
             this.cikis_butonu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseDown);
@@ -923,13 +926,29 @@
             // 
             // ogretmen_loggin_paneli
             // 
+            this.ogretmen_loggin_paneli.Controls.Add(this.Ogrenci_Liste_Butonu);
             this.ogretmen_loggin_paneli.Controls.Add(this.Ogretmen_Program);
             this.ogretmen_loggin_paneli.Controls.Add(this.Yeni_Ders);
-            this.ogretmen_loggin_paneli.Location = new System.Drawing.Point(459, 4);
+            this.ogretmen_loggin_paneli.Location = new System.Drawing.Point(361, 4);
             this.ogretmen_loggin_paneli.Name = "ogretmen_loggin_paneli";
-            this.ogretmen_loggin_paneli.Size = new System.Drawing.Size(293, 33);
+            this.ogretmen_loggin_paneli.Size = new System.Drawing.Size(391, 40);
             this.ogretmen_loggin_paneli.TabIndex = 69;
             this.ogretmen_loggin_paneli.Visible = false;
+            // 
+            // Ogrenci_Liste_Butonu
+            // 
+            this.Ogrenci_Liste_Butonu.BackColor = System.Drawing.Color.Brown;
+            this.Ogrenci_Liste_Butonu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Ogrenci_Liste_Butonu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Ogrenci_Liste_Butonu.Location = new System.Drawing.Point(11, 8);
+            this.Ogrenci_Liste_Butonu.Name = "Ogrenci_Liste_Butonu";
+            this.Ogrenci_Liste_Butonu.Size = new System.Drawing.Size(111, 25);
+            this.Ogrenci_Liste_Butonu.TabIndex = 29;
+            this.Ogrenci_Liste_Butonu.Text = "Öğrenci Listesi";
+            this.Ogrenci_Liste_Butonu.UseVisualStyleBackColor = false;
+            this.Ogrenci_Liste_Butonu.Click += new System.EventHandler(this.Ogrenci_Liste_Butonu_Click);
+            this.Ogrenci_Liste_Butonu.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
+            this.Ogrenci_Liste_Butonu.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
             // 
             // excel_paneli
             // 
@@ -955,6 +974,32 @@
             this.giriss_paneli.TabIndex = 71;
             this.giriss_paneli.Visible = false;
             // 
+            // Ortak_Panel
+            // 
+            this.Ortak_Panel.Controls.Add(this.Profil);
+            this.Ortak_Panel.Controls.Add(this.cikis_butonu);
+            this.Ortak_Panel.Location = new System.Drawing.Point(758, 4);
+            this.Ortak_Panel.Name = "Ortak_Panel";
+            this.Ortak_Panel.Size = new System.Drawing.Size(84, 85);
+            this.Ortak_Panel.TabIndex = 72;
+            this.Ortak_Panel.Visible = false;
+            // 
+            // Profil
+            // 
+            this.Profil.BackColor = System.Drawing.Color.Brown;
+            this.Profil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Profil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Profil.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Profil.Location = new System.Drawing.Point(3, 5);
+            this.Profil.Name = "Profil";
+            this.Profil.Size = new System.Drawing.Size(75, 29);
+            this.Profil.TabIndex = 35;
+            this.Profil.Text = "Profil";
+            this.Profil.UseVisualStyleBackColor = false;
+            this.Profil.Click += new System.EventHandler(this.Profil_Click);
+            this.Profil.Paint += new System.Windows.Forms.PaintEventHandler(this.Button15_Paint);
+            this.Profil.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button15_MouseUp);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -963,6 +1008,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(845, 543);
+            this.Controls.Add(this.Ortak_Panel);
             this.Controls.Add(this.Ders_Olusturma_Paneli);
             this.Controls.Add(this.giriss_paneli);
             this.Controls.Add(this.ogrenci_loggin_paneli);
@@ -971,7 +1017,6 @@
             this.Controls.Add(this.Ders_Secim_Paneli);
             this.Controls.Add(this.excel_paneli);
             this.Controls.Add(this.ogretmen_loggin_paneli);
-            this.Controls.Add(this.cikis_butonu);
             this.Controls.Add(this.dersprogrami);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -994,6 +1039,7 @@
             this.excel_paneli.PerformLayout();
             this.giriss_paneli.ResumeLayout(false);
             this.giriss_paneli.PerformLayout();
+            this.Ortak_Panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1062,6 +1108,9 @@
         private System.Windows.Forms.Label KullaniciTipi_Label;
         private System.Windows.Forms.ComboBox kullanici_tipi;
         private System.Windows.Forms.Button kayit_tamamla;
+        private System.Windows.Forms.Button Ogrenci_Liste_Butonu;
+        private System.Windows.Forms.Panel Ortak_Panel;
+        private System.Windows.Forms.Button Profil;
     }
 }
 

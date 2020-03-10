@@ -108,7 +108,7 @@ namespace WindowsFormsApp1
                else
                     ogrenci_loggin_paneli.Show();
                 Control_hide(new Control[] { giriss_paneli, Giris_Paneli, Kayit_Paneli });
-                cikis_butonu.Show();
+                Ortak_Panel.Show();
            }
            else if (sifre == "null")
                 MessageBox.Show("böyle bir kullanici adi yok");
@@ -169,7 +169,7 @@ namespace WindowsFormsApp1
             Settings.GeneralSettings = string.Empty;
             Combobox_clear(new ComboBox[] { Saat_Menu, Brans_Hocalar_Menu, Gunler_Menu,
                 hoca_from_list, Hocalar_Menu }, true, true);
-            Control_hide(new Control[]{ cikis_butonu,dersprogrami,ogrenci_loggin_paneli , ogretmen_loggin_paneli ,
+            Control_hide(new Control[]{ Ortak_Panel,dersprogrami,ogrenci_loggin_paneli , ogretmen_loggin_paneli ,
                 Ders_Olusturma_Paneli,Ders_Secim_Paneli, excel_paneli,giriss_paneli,Kayit_Paneli,email_paneli});
         }
         private void Button15_Click(object sender, EventArgs e)
@@ -486,6 +486,30 @@ namespace WindowsFormsApp1
                 else
                     MessageBox.Show("Kullanici adi alinmis. Lutfen tekrar deneyiniz");
             }
+        }
+
+        private void Ogrenci_Liste_Butonu_Click(object sender, EventArgs e)
+        {
+            string ogrenciler = $@"Select isim,soyisim,Sınıf from Kisiler where unvan = 'Ogrenci'";
+            Dictionary<string, List<string>> ogrencidict = Sqlreaderexecuter(ogrenciler);
+            int ogrencicount = ogrencidict["isim"].Count;
+            string[] rows = new string[ogrencicount];
+            for (int i = 0; i < ogrencicount; i++)
+                rows[i] = i.ToString();
+            string[] columns = {"İsim","Soyisim","Sınıf" };
+            Datagridviewformatter(dersprogrami, columns, rows, Color.Empty);
+            for (int i=0;i<ogrencicount;i++)
+            {
+                dersprogrami.Rows[i].Cells[0].Value = ogrencidict["isim"][i];
+                dersprogrami.Rows[i].Cells[1].Value = ogrencidict["soyisim"][i];
+                dersprogrami.Rows[i].Cells[2].Value = ogrencidict["Sınıf"][i];
+            }
+        }
+
+        private void Profil_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.ShowDialog();
         }
     }
 }
