@@ -47,7 +47,7 @@ namespace WindowsFormsApp1
                 string date = myDate.ToString("yyyy - MM - dd ");
                 date += Saat_Menu.Text;
                 string yeniders = $@"insert into Dersler(Sınıf,DersAdi,date2,DersGünü,DersHocasi,quota,enrolled)
-                                     values('{Sınıf_Menu.Text}','{Branslar_Menu.Text}','{date}','{gun}','{name}','1','0')";
+                values('{Sınıf_Menu.Text}','{Branslar_Menu.Text}','{date}','{gun}','{name}','1','0')";
                 if(Sqlexecuter(yeniders,0) == "null")
                     MessageBox.Show("Ders Saatleri Çakışıyor. Lütfen Ders Programını Kontrol Ediniz!");
             }
@@ -103,9 +103,9 @@ namespace WindowsFormsApp1
                 Dictionary<string, List<string>> persondict = Sqlreaderexecuter(personget);
                 Person person = new Person(persondict, kullanici_adi.Text);
                 Settings.GeneralSettings = JsonConvert.SerializeObject(person);
-               if (persondict["unvan"].Contains("Ogretmen"))
+                if (person.Unvan == "Ogretmen")
                     ogretmen_loggin_paneli.Show();
-               else
+                else
                     ogrenci_loggin_paneli.Show();
                 Control_hide(new Control[] { giriss_paneli, Giris_Paneli, Kayit_Paneli });
                 Ortak_Panel.Show();
@@ -123,7 +123,7 @@ namespace WindowsFormsApp1
             excel_paneli.Visible = true;
             Ders_Olusturma_Paneli.Visible = false;
             string str = $@"select Hocalar.isim [Hocalar] from Hocalar
-                            inner join Dersler on Dersler.hoca_id = Hocalar.hoca_id";
+            inner join Dersler on Dersler.hoca_id = Hocalar.hoca_id";
             Dictionary<string, List<string>> mydict = Sqlreaderexecuter(str);
             FillComboBoxWithList(Hocalar_Menu, mydict["Hocalar"]);
         }
@@ -181,8 +181,8 @@ namespace WindowsFormsApp1
             Datagridviewformatter(dersprogrami, Ders_gunlerii, Ders_saatleri,Color.DarkGray);
             Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
             string dersler = $@"select Dersler.DersGünü,Dersler.DersAdi, Dersler.hoca_id[hocaid], 
-                                cast(Dersler.date2 as time(0))[time] from Dersler inner join DersKayit 
-                                on DersKayit.ders_id = Dersler.Ders_ID where derskayit.student_id = '{person.Id}' ";
+            cast(Dersler.date2 as time(0))[time] from Dersler inner join DersKayit 
+            on DersKayit.ders_id = Dersler.Ders_ID where derskayit.student_id = '{person.Id}' ";
             Dictionary<string, List<string>> mydict = Sqlreaderexecuter(dersler);
             FillDataGridView(dersprogrami, mydict, true);
             MessageBox.Show("Bırakmak İstediğiniz Dersin Üzerine Çift Tıklayınız");
@@ -203,8 +203,8 @@ namespace WindowsFormsApp1
                 string[] headerscol = { Gunler_Menu.Text };
                 Datagridviewformatter(dersprogrami,Ders_saatleri,headerscol,Color.Red);
                 string str1 = $"select cast(date2 as time(0))[date] from Dersler where Quota != Enrolled " +
-                        $"and Hoca_id = (select hoca_id from Hocalar where isim = '{Brans_Hocalar_Menu.Text}') " +
-                        $"and DersGünü = '{Gunler_Menu.Text}'";
+                $"and Hoca_id = (select hoca_id from Hocalar where isim = '{Brans_Hocalar_Menu.Text}') " +
+                $"and DersGünü = '{Gunler_Menu.Text}'";
                 Dictionary<string,List<string>> mydict = Sqlreaderexecuter(str1);
                 foreach(string hour in mydict["date"])
                 {
@@ -225,8 +225,8 @@ namespace WindowsFormsApp1
         {
             Combobox_clear(new ComboBox[] {Brans_Hocalar_Menu,Gunler_Menu }, true, false);
             string str = $@"select Hocalar.isim [Hocalar] from Hocalar
-                        inner join Dersler on Dersler.hoca_id = Hocalar.hoca_id
-                        where Dersler.DersAdi = '{Brans_Menu.Text}' and Dersler.Enrolled != Dersler.Quota";
+            inner join Dersler on Dersler.hoca_id = Hocalar.hoca_id
+            where Dersler.DersAdi = '{Brans_Menu.Text}' and Dersler.Enrolled != Dersler.Quota";
             Dictionary<string, List<string>> mydict = Sqlreaderexecuter(str);
             FillComboBoxWithList(Brans_Hocalar_Menu,mydict["Hocalar"]);
             if(Brans_Hocalar_Menu.Items.Count == 0)
@@ -245,8 +245,8 @@ namespace WindowsFormsApp1
         {
             Combobox_clear(new ComboBox[] { Gunler_Menu }, true, true);
             string str = $"Select DersGünü from Dersler where Quota != Enrolled and" +
-                $" DersAdi = '{Brans_Menu.Text}' and hoca_id = (select Hoca_id from Hocalar" +
-                $" where isim ='{Brans_Hocalar_Menu.Text}')";
+            $" DersAdi = '{Brans_Menu.Text}' and hoca_id = (select Hoca_id from Hocalar" +
+            $" where isim ='{Brans_Hocalar_Menu.Text}')";
             Dictionary<string, List<string>> mydict = Sqlreaderexecuter(str);
             FillComboBoxWithList(Gunler_Menu, mydict["DersGünü"]);
             if (Gunler_Menu.Items.Count == 0)
@@ -270,14 +270,14 @@ namespace WindowsFormsApp1
                 string derssaati = dersprogrami.Columns[colind].HeaderText;
                 Person person = JsonConvert.DeserializeObject<Person>(Settings.GeneralSettings);
                 string ders_id = $@"select Ders_ID from Dersler where hoca_id = (select Hoca_id from Hocalar where isim = '{Brans_Hocalar_Menu.Text}')
-                                    and DersGünü = '{dersgünü}' and DersAdi = '{Brans_Menu.Text}'
-                                    and cast(date2 as time(0)) = '{derssaati}'";
+                and DersGünü = '{dersgünü}' and DersAdi = '{Brans_Menu.Text}'
+                and cast(date2 as time(0)) = '{derssaati}'";
                 ders_id = Sqlexecuter(ders_id, 1);
                 if(ders_id == "null")
                     return;
                 string checkcollision = $@"select Dersler.DersGünü, cast(date2 as time(0))[time] from
-                                           Dersler inner join Derskayit on Derskayit.ders_id = Dersler.Ders_ID
-                                           where derskayit.student_id = '{person.Id}'";
+                Dersler inner join Derskayit on Derskayit.ders_id = Dersler.Ders_ID
+                where derskayit.student_id = '{person.Id}'";
                 Dictionary<string, List<string>> mydict = Sqlreaderexecuter(checkcollision);
                 int countt = mydict["DersGünü"].Count;
                 for (int i=0;i<countt;i++)
@@ -317,11 +317,11 @@ namespace WindowsFormsApp1
                      string dersgunu = dersprogrami.Columns[colind].HeaderText;
                      string derssaati = dersprogrami.Rows[rowind].HeaderCell.Value.ToString();
                      string unenroll = $@"delete from DersKayit where student_id = {person.Id} and
-                                                  ders_id = (select Ders_ID from Dersler where 
-                                                  hoca_id = (select Hoca_id from Hocalar where 
-                                                  isim = '{dershocasi}') and DersAdi = '{dersadi}'
-                                                  and cast(date2 as time(0)) = '{derssaati}'
-                                                  and DersGünü = '{dersgunu}')";
+                     ders_id = (select Ders_ID from Dersler where 
+                     hoca_id = (select Hoca_id from Hocalar where 
+                     isim = '{dershocasi}') and DersAdi = '{dersadi}'
+                     and cast(date2 as time(0)) = '{derssaati}'
+                     and DersGünü = '{dersgunu}')";
                      if (Sqlexecuter(unenroll, 0) == "null")
                      {
                         MessageBox.Show("Basarisiz!");
@@ -403,7 +403,7 @@ namespace WindowsFormsApp1
                 button3.Enabled = true;
                 Datagridviewformatter(dersprogrami, Ders_gunlerii, Ders_saatleri, Color.DarkGray);
                 string schedule = $"select cast(date2 as time(0))[time],DersGünü, Enrolled from Dersler where " +
-                                  $"Hoca_id = (select hoca_id from Hocalar where isim = '{Hocalar_Menu.Text}')";
+                $"Hoca_id = (select hoca_id from Hocalar where isim = '{Hocalar_Menu.Text}')";
                 Dictionary<string, List<string>> mydict = Sqlreaderexecuter(schedule);
                 FillDataGridView(dersprogrami, mydict, false);
             }
@@ -473,8 +473,8 @@ namespace WindowsFormsApp1
             if ((kullanici_tipi.Text == "Ogretmen" && Kod_Text.Text == "385") || kullanici_tipi.Text == "Ogrenci")
             {
                 string yenikayit = $@"INSERT INTO Kisiler (kullaniciadi,sifre,isim,soyisim,mail,unvan)
-                                        values('{kullanici_adi.Text}','{sifre.Text}','{Isim_Text.Text}',
-                                        '{textBox5.Text}','{textBox3.Text}','{kullanici_tipi.Text}')";
+                values('{kullanici_adi.Text}','{sifre.Text}','{Isim_Text.Text}',
+                '{textBox5.Text}','{textBox3.Text}','{kullanici_tipi.Text}')";
                 string success = Sqlexecuter(yenikayit, 0);
                 if (success == "")
                 {

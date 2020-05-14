@@ -36,7 +36,6 @@ C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsF
 C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.Form1.resources
 C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
-C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
 C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.exe
 C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.pdb
