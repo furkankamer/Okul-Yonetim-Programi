@@ -46,5 +46,10 @@ namespace WindowsFormsApp1
             eskisifre.Show();
             eskisifre_text.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

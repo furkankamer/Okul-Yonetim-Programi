@@ -40,3 +40,4 @@ C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsF
 C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.exe
 C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\furka\Desktop\Projeler\formapp\Okul-Yonetim-Programi\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache

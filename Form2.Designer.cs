@@ -37,15 +37,16 @@
             this.kaydet = new System.Windows.Forms.Button();
             this.eskisifre = new System.Windows.Forms.Label();
             this.eskisifre_text = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // kullanici_adi
             // 
             this.kullanici_adi.AutoSize = true;
-            this.kullanici_adi.BackColor = System.Drawing.Color.Brown;
+            this.kullanici_adi.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.kullanici_adi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.kullanici_adi.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.kullanici_adi.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.kullanici_adi.ForeColor = System.Drawing.Color.DarkRed;
             this.kullanici_adi.Location = new System.Drawing.Point(-1, 18);
             this.kullanici_adi.Name = "kullanici_adi";
             this.kullanici_adi.Size = new System.Drawing.Size(138, 26);
@@ -54,7 +55,7 @@
             // 
             // kullaniciadi_text
             // 
-            this.kullaniciadi_text.BackColor = System.Drawing.Color.Brown;
+            this.kullaniciadi_text.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.kullaniciadi_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.kullaniciadi_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.kullaniciadi_text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -66,10 +67,10 @@
             // sifre
             // 
             this.sifre.AutoSize = true;
-            this.sifre.BackColor = System.Drawing.Color.Brown;
+            this.sifre.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.sifre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.sifre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.sifre.ForeColor = System.Drawing.Color.DarkRed;
             this.sifre.Location = new System.Drawing.Point(-1, 56);
             this.sifre.Name = "sifre";
             this.sifre.Size = new System.Drawing.Size(63, 26);
@@ -78,7 +79,7 @@
             // 
             // sifre_text
             // 
-            this.sifre_text.BackColor = System.Drawing.Color.Brown;
+            this.sifre_text.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.sifre_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sifre_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.sifre_text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -92,10 +93,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Brown;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
             this.label1.Location = new System.Drawing.Point(-1, 139);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 26);
@@ -104,7 +105,7 @@
             // 
             // email_text
             // 
-            this.email_text.BackColor = System.Drawing.Color.Brown;
+            this.email_text.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.email_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.email_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.email_text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -115,10 +116,10 @@
             // 
             // kaydet
             // 
-            this.kaydet.BackColor = System.Drawing.Color.Brown;
+            this.kaydet.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.kaydet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.kaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.kaydet.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.kaydet.ForeColor = System.Drawing.Color.DarkRed;
             this.kaydet.Location = new System.Drawing.Point(284, 171);
             this.kaydet.Name = "kaydet";
             this.kaydet.Size = new System.Drawing.Size(120, 35);
@@ -130,10 +131,10 @@
             // eskisifre
             // 
             this.eskisifre.AutoSize = true;
-            this.eskisifre.BackColor = System.Drawing.Color.Brown;
+            this.eskisifre.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.eskisifre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.eskisifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.eskisifre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.eskisifre.ForeColor = System.Drawing.Color.DarkRed;
             this.eskisifre.Location = new System.Drawing.Point(-1, 97);
             this.eskisifre.Name = "eskisifre";
             this.eskisifre.Size = new System.Drawing.Size(111, 26);
@@ -142,7 +143,7 @@
             // 
             // eskisifre_text
             // 
-            this.eskisifre_text.BackColor = System.Drawing.Color.Brown;
+            this.eskisifre_text.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.eskisifre_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.eskisifre_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.eskisifre_text.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -152,11 +153,28 @@
             this.eskisifre_text.Size = new System.Drawing.Size(116, 29);
             this.eskisifre_text.TabIndex = 53;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkRed;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.DarkRed;
+            this.button1.Location = new System.Drawing.Point(396, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(26, 26);
+            this.button1.TabIndex = 54;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(434, 218);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.eskisifre_text);
             this.Controls.Add(this.eskisifre);
             this.Controls.Add(this.kaydet);
@@ -166,6 +184,7 @@
             this.Controls.Add(this.sifre);
             this.Controls.Add(this.kullaniciadi_text);
             this.Controls.Add(this.kullanici_adi);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -184,5 +203,6 @@
         private System.Windows.Forms.Button kaydet;
         private System.Windows.Forms.Label eskisifre;
         private System.Windows.Forms.TextBox eskisifre_text;
+        private System.Windows.Forms.Button button1;
     }
 }

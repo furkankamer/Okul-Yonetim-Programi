@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Media;
@@ -30,7 +31,6 @@ namespace WindowsFormsApp1
             kullanici_tipi.Items.AddRange(Kullanici_Tipleri);
         }
         
-        private bool blnButtonDown = false;
         public SoundPlayer Player { get; } = new SoundPlayer(Properties.Resources.dad2);
         public Color Renk { get; set; }
 
@@ -206,15 +206,12 @@ namespace WindowsFormsApp1
                 $"and Hoca_id = (select hoca_id from Hocalar where isim = '{Brans_Hocalar_Menu.Text}') " +
                 $"and DersGünü = '{Gunler_Menu.Text}'";
                 Dictionary<string,List<string>> mydict = Sqlreaderexecuter(str1);
-                foreach(string hour in mydict["date"])
-                {
-                    DataGridViewCell cell = Datagridcellreturner(dersprogrami, hour, Gunler_Menu.Text);
-                    if (cell != null)
-                    {
+                mydict["date"].Select(hour => Datagridcellreturner(dersprogrami, hour, Gunler_Menu.Text))
+                    .Where(cell => cell != null)
+                    .ToList().ForEach(cell => { 
                         cell.Value = "Seç";
                         cell.Style.BackColor = Color.Green;
-                    }
-                }
+                    });
             }
             else
             {
@@ -367,35 +364,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void Button15_Paint(object sender, PaintEventArgs e)
-        {
-            if (blnButtonDown == false)
-            {
-                    ControlPaint.DrawBorder(e.Graphics, (sender as Button).ClientRectangle,
-                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset,
-                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset,
-                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset,
-                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Outset);
-            }
-            else
-            {
-                    ControlPaint.DrawBorder(e.Graphics, (sender as Button).ClientRectangle,
-                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset,
-                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset,
-                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset,
-                    SystemColors.ActiveBorder, 1, ButtonBorderStyle.Inset);
-            }
-        }
-        private void Button15_MouseDown(object sender, MouseEventArgs e)
-        {
-            blnButtonDown = true;
-            (sender as Button).Invalidate();
-        }
-        private void Button15_MouseUp(object sender, MouseEventArgs e)
-        {
-            blnButtonDown = false;
-            (sender as Button).Invalidate();
-        }
         private void ComboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(Hocalar_Menu.Text !="")
@@ -482,6 +450,7 @@ namespace WindowsFormsApp1
                     kullanici_adi.Clear();
                     sifre.Clear();
                     Kayit_Paneli.Hide();
+                    tamam.Show();
                 }
                 else
                     MessageBox.Show("Kullanici adi alinmis. Lutfen tekrar deneyiniz");
@@ -511,5 +480,12 @@ namespace WindowsFormsApp1
             Form2 form = new Form2();
             form.ShowDialog();
         }
+
+        private void CloseMainForm_Click(object sender, EventArgs e) => Close();
+
+        private void CloseMainForm_MouseLeave(object sender, EventArgs e)
+            => (sender as Button).ForeColor = Color.DarkRed;
+        private void CloseMainForm_MouseEnter(object sender, EventArgs e)
+            => (sender as Button).ForeColor = Color.Black;
     }
 }

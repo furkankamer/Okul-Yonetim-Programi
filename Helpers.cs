@@ -13,6 +13,15 @@ namespace WindowsFormsApp1
 {
     class Helpers
     {
+        private readonly static Dictionary<string, string> Days = new Dictionary<string, string> {
+            { "Monday", "Pazartesi" },
+            { "Tuesday", "Salı" },
+            { "Wednesday", "Çarşamba" },
+            { "Thursday", "Perşembe" },
+            { "Friday", "Cuma" },
+            { "Saturday", "Cumartesi" },
+            { "Sunday", "Pazar" }
+        };
         static public DataGridViewCell Datagridcellreturner(DataGridView datag,string gun,string saat)
         {
             int rowindex = FindRow(datag, saat);
@@ -52,6 +61,7 @@ namespace WindowsFormsApp1
                 }
                 catch
                 {
+                    MessageBox.Show("Sql connection error");
                     return "null";
                 }
                 using (SqlCommand comm = new SqlCommand(command, con))
@@ -78,29 +88,6 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-        }
-
-        static public string select_query_template(string[] selectall,string selectfrom,string[] wheres)
-        {
-            string query = select + " ";
-            int count = 0;
-            foreach (string selects in selectall)
-            {
-                query += selects;
-                count++;
-                if (count < selectall.Length)
-                    query += ", ";
-            }
-            query += "from " + selectfrom + " ";
-            count = 0;
-            foreach (string where in wheres)
-            {
-                query += where;
-                count++;
-                if (count < wheres.Length)
-                    query += " and ";
-            }
-            return query;
         }
 
         static public Dictionary<string, List<string>> Sqlreaderexecuter(string comm)
@@ -147,15 +134,8 @@ namespace WindowsFormsApp1
 
         static public string Hangi_Gun(DateTimePicker datepicker)
         {
-            DateTime myDate = datepicker.Value.Date;
-            string gun = "";
-            if (myDate.DayOfWeek.ToString() == "Monday") gun = "Pazartesi";
-            else if (myDate.DayOfWeek.ToString() == "Tuesday") gun = "Salı";
-            else if (myDate.DayOfWeek.ToString() == "Wednesday") gun = "Çarşamba";
-            else if (myDate.DayOfWeek.ToString() == "Thursday") gun = "Perşembe";
-            else if (myDate.DayOfWeek.ToString() == "Friday") gun = "Cuma";
-            else if (myDate.DayOfWeek.ToString() == "Saturday") gun = "Cumartesi";
-            return gun;
+            string Day = datepicker.Value.Date.DayOfWeek.ToString();
+            return Days.ToList().Find(keyvalue => keyvalue.Key == Day).Value;
         }
 
         static public void Datagridviewformatter(DataGridView datag, string[] columns, string[] rows, Color color,bool mode=true)
@@ -168,14 +148,8 @@ namespace WindowsFormsApp1
                 datag.DefaultCellStyle.SelectionBackColor = Color.SkyBlue;
                 datag.DefaultCellStyle.BackColor = color;
                 datag.ReadOnly = true;
-                foreach (string header in columns)
-                {
-                    DataGridViewColumn d = new DataGridViewTextBoxColumn
-                    {
-                        HeaderText = header
-                    };
-                    datag.Columns.Add(d);
-                }
+                columns.Select(header => new DataGridViewTextBoxColumn { HeaderText = header })
+                       .ToList().ForEach(col => datag.Columns.Add(col));
                 if (rows.Length > 1)
                     datag.Rows.Add(rows.Length - 1);
                 for (int i = 0; i < rows.Length; i++)
@@ -243,48 +217,26 @@ namespace WindowsFormsApp1
             datet.CustomFormat = "yyyy-MM-dddd";
             datet.Hide();
         }
-        static public void Control_hide(Control[] controls)
-        {
-            foreach (Control control in controls)
-                control.Hide();
-        }
-        static public void Control_show(Control[] controls)
-        {
-            foreach (Control control in controls)
-                control.Show();
-        }
-        static public void Control_enable(Control[] controls)
-        {
-            foreach (Control control in controls)
-                control.Enabled = true;
-        }
+        static public void Control_hide(Control[] controls) =>
+            controls.ToList().ForEach(control => control.Hide());
+        public static void Control_show(Control[] controls) =>
+            controls.ToList().ForEach(control => control.Show());
+        static public void Control_enable(Control[] controls)=>
+            controls.ToList().ForEach(control => control.Enabled = true);
         static public void Control_disable(Control[] controls)
         {
-            foreach (Control control in controls)
-                control.Enabled = false;
+            controls.ToList().ForEach(control => control.Enabled = false);
         }
-        static public void Combobox_dropdown(ComboBox[] comboboxes)
-        {
-            foreach (ComboBox combobox in comboboxes)
-                combobox.DropDownStyle = ComboBoxStyle.DropDownList;
-        }
-        static public void Combobox_clear(ComboBox[] comboboxes,bool clear,bool indexclear)
-        {
-            foreach (ComboBox combobox in comboboxes)
+        static public void Combobox_dropdown(ComboBox[] comboboxes) =>
+            comboboxes.ToList().ForEach(combobox => combobox.DropDownStyle = ComboBoxStyle.DropDownList);
+        public static void Combobox_clear(ComboBox[] comboboxes, bool clear, bool indexclear) =>
+            comboboxes.ToList().ForEach(combobox =>
             {
-                if(clear)
-                    combobox.Items.Clear();
-                if(indexclear)
-                    combobox.SelectedIndex = -1;
-            }
-               
-        }
-        static public void FillComboBoxWithList(ComboBox comboBox, List<string> mylist)
-        {
-            mylist = mylist.Distinct().ToList();
-            string[] ListToString = mylist.ToArray();
-            comboBox.Items.AddRange(ListToString);
-        }
+                if (clear) combobox.Items.Clear();
+                if (indexclear) combobox.SelectedIndex = -1;
+            });
+        static public void FillComboBoxWithList(ComboBox comboBox, List<string> mylist) =>
+            comboBox.Items.AddRange(mylist.Distinct().ToArray());
         static public void CopyAlltoClipboard(DataGridView dersprogrami)
         {
             dersprogrami.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
