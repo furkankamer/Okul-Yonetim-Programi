@@ -46,7 +46,14 @@ namespace WindowsFormsApp1
             string constr = ConfigurationManager.ConnectionStrings["derssecimconnection"].ConnectionString.ToString();
             using (SqlConnection con = new SqlConnection(constr))
             {
-                con.Open();
+                try
+                {
+                    con.Open();
+                }
+                catch
+                {
+                    return "null";
+                }
                 using (SqlCommand comm = new SqlCommand(command, con))
                 {
                     try
@@ -69,9 +76,7 @@ namespace WindowsFormsApp1
                         con.Close();
                         return "null";
                     }
-
                 }
-
             }
         }
 
